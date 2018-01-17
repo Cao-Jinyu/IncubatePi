@@ -1,0 +1,4 @@
+
+ssh -X team10@rank510iot.gla.ac.uk
+
+ssh -X pi@192.168.1.181
