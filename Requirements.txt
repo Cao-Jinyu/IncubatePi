@@ -1,0 +1,40 @@
+
+Requirements Document
+*********************
+
+AIM:    To use a Raspberry Pi computer to develop a incubator system, incorporating temperature control.
+
+KEY COMPONENTS:
+
+        1. Neonate temperature measurement.
+        2. Temperature control of incubator environment.
+        3. Circulating fan to disperse heat and cool incubator environment.
+        4. Internal temperature, and neonatal temperature display.
+        5. Plastic cover to enclose neonatal and complementary equipment.
+        6. Enclosure for electronics.
+        
+1.  Neonate temperature measurement.
+
+    1.1 Neonatal temperature sensor:                30 celcius - 50 celcius
+        Incubator environment temperature sensor:   0  celcius - 50 celcius
+        
+        Accuracy of both sensors shall be 0.1 celcius
+        
+        Simple interface with raspberry
+        
+        
+2.  Heating element with sufficient power to heat incubation enclosure
+        
+        
+3.  Circulating fan placed between external environment and incubator environment.
+
+
+4.  Display
+
+
+5.  Plastic cover
+
+    5.1 Upside-down box
+    
+    
+6.  Enclosure for electronics
