@@ -1,0 +1,69 @@
+FILE_TYPE=LIBRARY_PARTS;
+{ Using PSTWRITER 17.2.0 d001Jan-24-2018 at 16:56:50}
+primitive 'CONN FLEX 3_GU-TERMINAL3-200_CO';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    '3':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CONN FLEX 3';
+    JEDEC_TYPE='gu-terminal3-200';
+    VALUE='CONN FLEX 3';
+  end_body;
+end_primitive;
+primitive 'R_GU-R0805_4K7';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='R';
+    JEDEC_TYPE='gu-r0805';
+    VALUE='4K7';
+  end_body;
+end_primitive;
+primitive 'DS18B20_0_USOP8_DS18B20';
+  pin
+    'VDD':
+      PIN_NUMBER='(8)';
+      PINUSE='UNSPEC';
+    'NC 7':
+      PIN_NUMBER='(7)';
+      PINUSE='UNSPEC';
+    'NC 6':
+      PIN_NUMBER='(6)';
+      PINUSE='UNSPEC';
+    'NC 5':
+      PIN_NUMBER='(5)';
+      PINUSE='UNSPEC';
+    'DQ':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    'NC 2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    'NC 3':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+    'GND':
+      PIN_NUMBER='(4)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='DS18B20_0';
+    JEDEC_TYPE='usop8';
+    VALUE='DS18B20';
+  end_body;
+end_primitive;
+END.

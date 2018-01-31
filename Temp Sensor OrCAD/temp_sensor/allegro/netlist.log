@@ -1,0 +1,13 @@
+{ Using PSTWRITER 17.2.0 d001Jan-24-2018 at 16:56:49 }
+
+#1 WARNING(ORCAP-36006): Part Name "CONN FLEX 3_GU-TERMINAL3-200_CONN FLEX 3" is renamed to "CONN FLEX 3_GU-TERMINAL3-200_CO".
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... H:\TEMP_SENSOR\allegro/pstchip.dat
+
+Loading... H:\TEMP_SENSOR\allegro/pstchip.dat
+
+Loading... H:\TEMP_SENSOR\allegro/pstxprt.dat
+
+Loading... H:\TEMP_SENSOR\allegro/pstxnet.dat
+packaging the design view...
