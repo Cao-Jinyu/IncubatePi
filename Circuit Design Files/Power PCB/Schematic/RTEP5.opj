@@ -47,13 +47,14 @@
     (DRC_Run_Physical_Custom_DRC "FALSE")
     (Netlist_TAB "0")
     ("Create Allegro Netlist" "TRUE")
-    ("Allegro Netlist Directory" "H:\RTEP5 Power PCB\Schematic\allegro")
+    ("Allegro Netlist Directory" "H:\IncubatePi\Circuit Design Files\Power PCB")
     ("View Allegro Netlist Files" "FALSE")
     ("Allegro Netlist Create DCF File" "FALSE")
     ("Update Allegro Board" "TRUE")
-    ("Allegro Netlist Input Board File" "H:\RTEP5 Power PCB\Layout\layout1.brd")
+    ("Allegro Netlist Input Board File"
+       "H:\IncubatePi\Circuit Design Files\Power PCB\Layout\layout1.brd")
     ("Allegro Netlist Output Board File"
-       "H:\RTEP5 Power PCB\Layout\layout1.brd")
+       "H:\IncubatePi\Circuit Design Files\Power PCB\Layout\layout1.brd")
     ("Allegro Netlist Remove Etch" "FALSE")
     ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
     ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
@@ -73,6 +74,15 @@
       (Type "Report")
       (DisplayName "pstxprt.dat"))
     (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (File "..\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File "..\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File "..\pstchip.dat"
       (Type "Report")
       (DisplayName "pstchip.dat")))
   (Folder "Referenced Projects")
@@ -131,7 +141,7 @@
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library" "..\parts\rtep5_parts.olb")
       (Path "Outputs")
-      (Select "Design Resources" ".\rtep5.dsn" "SCHEMATIC1" "PAGE1"))
+      (Select "Design Resources" ".\rtep5.dsn" "Design Cache" "TSM4806"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -141,11 +151,11 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 979 52 231")
-        (Scroll "0 90")
+        (Placement "44 2 3 -1 -1 -8 -31 52 1238 52 303")
+        (Scroll "-144 340")
         (Zoom "100")
         (Occurrence "/"))
-      (Path "H:\RTEP5 POWER PCB\SCHEMATIC\RTEP5.DSN")
+      (Path "H:\INCUBATEPI\CIRCUIT DESIGN FILES\POWER PCB\SCHEMATIC\RTEP5.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (ISPCBBASICLICENSE "false"))
