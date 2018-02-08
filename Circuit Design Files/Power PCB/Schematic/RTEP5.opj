@@ -141,7 +141,7 @@
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library" "..\parts\rtep5_parts.olb")
       (Path "Outputs")
-      (Select "Design Resources" ".\rtep5.dsn" "Design Cache" "TSM4806"))
+      (Select "Design Resources" ".\rtep5.dsn" "Design Cache" "R"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -151,8 +151,8 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 52 1238 52 303")
-        (Scroll "-144 340")
+        (Placement "44 0 1 -1 -1 -8 -31 52 1238 52 303")
+        (Scroll "-84 0")
         (Zoom "100")
         (Occurrence "/"))
       (Path "H:\INCUBATEPI\CIRCUIT DESIGN FILES\POWER PCB\SCHEMATIC\RTEP5.DSN")
