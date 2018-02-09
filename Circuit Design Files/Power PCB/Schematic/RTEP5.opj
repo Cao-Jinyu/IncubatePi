@@ -84,6 +84,15 @@
       (DisplayName "pstxprt.dat"))
     (File "..\pstchip.dat"
       (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (File "h:\incubatepi\circuit design files\power pcb\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File "h:\incubatepi\circuit design files\power pcb\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File "h:\incubatepi\circuit design files\power pcb\pstchip.dat"
+      (Type "Report")
       (DisplayName "pstchip.dat")))
   (Folder "Referenced Projects")
   (PartMRUSelector
@@ -141,21 +150,21 @@
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library" "..\parts\rtep5_parts.olb")
       (Path "Outputs")
-      (Select "Design Resources" ".\rtep5.dsn" "Design Cache" "R"))
+      (Select "Design Resources" ".\rtep5.dsn" "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 420"))
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 420"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 1238 52 303")
-        (Scroll "-84 0")
+        (Placement "44 0 1 -1 -1 -8 -31 52 1688 52 511")
+        (Scroll "-309 0")
         (Zoom "100")
         (Occurrence "/"))
-      (Path "H:\INCUBATEPI\CIRCUIT DESIGN FILES\POWER PCB\SCHEMATIC\RTEP5.DSN")
+      (Path "M:\INCUBATEPI\CIRCUIT DESIGN FILES\POWER PCB\SCHEMATIC\RTEP5.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (ISPCBBASICLICENSE "false"))
