@@ -15,6 +15,12 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_block_diagram.png)
 
+## University of Glasgow
+
+Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
+
+Course convener:    Dr Bernd Porr
+
 ## Team Members
 
 ### Jack Croal
