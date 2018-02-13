@@ -1,6 +1,9 @@
 # IncubatePi
 
-https://www.facebook.com/IncuPi/
+[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook.png
+[facebook_url]: https://www.facebook.com/IncuPi/
+
+Follow us on [![alt text][facebook_icon]][facebook_url]
 
 ## Motivation
 
