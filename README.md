@@ -1,9 +1,14 @@
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
 
-[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook.png
+[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
 
+[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
+[instagram_url]: https://www.instagram.com/incupi_project
+
 Follow us on [![alt text][facebook_icon]][facebook_url]
+
+Follow us on [![alt text][instagram_icon]][instagram_url]
 
 ## Problem
 
