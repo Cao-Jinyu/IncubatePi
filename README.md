@@ -6,7 +6,7 @@
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
 
-Follow us on  [![alt text][facebook_icon]][facebook_url] [![alt text][instagram_icon]][instagram_url]
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] [![alt text][instagram_icon]][instagram_url]
 
 ## Problem
 
