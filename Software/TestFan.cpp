@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
-#include <stdlib.h>  
+#include <stdlib.h>
 
 using namespace std;     
  
@@ -23,7 +23,7 @@ using namespace std;
 #define ENABLEFILE      /sys/class/pwm/pwmchip0/pwm1/enable
 
 #define TEMPFILE        temp
-#define MODULECHECK     lsmod | grep fjes > TEMPFILE
+#define MODULECHECK     lsmod | grep pwm > TEMPFILE
 
 
 class PWMCtl{
@@ -32,14 +32,13 @@ class PWMCtl{
         int setupCheck;
         int configureCheck;
         int period;
-        
+
         int moduleCheck();
         int exportPWM();    
         int setPeriod(int period);
         int setDutyCycle(int dutyCycle);
-        
 
-    
+
     public:     
         PWMCtl();        
         int setup();
@@ -53,7 +52,7 @@ PWMCtl::PWMCtl(){
     configureCheck = 0;  
     period = 0;
 }
- 
+
 /*
     Calls the neccessary functions to set up the PWM channel.
     Returns 0 and sets setupCheck on success.
@@ -83,7 +82,7 @@ int PWMCtl::configure(int period, int dutyCycle){
     return 0;
 }
 
-/* 
+/*
 	Checks that the PWM module is loaded in the linux kernel.
 	This is done by searching the linux module list and confirming that 
 	there is at least one module containing the string 'pwm'.
@@ -245,27 +244,27 @@ int PWMCtl::disable(){
 
 int main (void) {
 
-	/* 
+	/*
 		uname -r       					: Check kernel version
 		/boot/config.txt				: Edit this file
-		dtoverlay=pwm,pin=13,func=4		: Add this line		
+		dtoverlay=pwm,pin=19,func=2			: Add this line
 	*/
 
  	PWMCtl *pwm = new PWMCtl();
  	if (pwm->setup()) return 1;
  	if (pwm->configure(DEFAULT_PERIOD,0)) return 1;
  	pwm->enable();
- 	
- 	//for (;;){
+	usleep(DELAY);
+
+ 	for (;;){
  	    for (int i=0; i<=4; i++){
  	        pwm->configure(DEFAULT_PERIOD, DEFAULT_PERIOD * i/4);
  	        usleep(DELAY);
- 	    } 
-    //}
-    
-    
+ 	    }
+    	}
+
+
     pwm->disable();
     delete pwm;
-    	    		
 }
 
