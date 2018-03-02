@@ -1,6 +1,9 @@
 #ifndef PWM_CTRL
 #define PWM_CTRL
 
+/*
+    This class is used to control the PWM1 chip on the RPI
+*/
 class PWMCtrl {
     private:
         static int setupCheck;

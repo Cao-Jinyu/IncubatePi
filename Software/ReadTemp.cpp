@@ -1,92 +1,93 @@
 #include <iostream>
-#include <dirent.h>
 #include <string>
+#include <fstream>
+#include <stdio.h>     
+#include <stdlib.h>
+#include <cstring>
+#include "ReadTemp.h"
 
-using namespace std; 
+static std::string W1GPIO = "modprobe w1-gpio";
+static std::string W1THERM = "modprobe w1-therm";
+static std::string W1PATH = "/sys/bus/w1/devices/";
+static std::string W1FILE = "/w1_slave";
 
-#define STRINGIFY(x) #x
-#define TOSTRING(x) STRINGIFY(x)
-
-#define W1GPIO 		modprobe w1-gpio
-#define W1THERM 	modprobe w1-therm
-#define W1PATH 		/sys/bus/w1/devices/
-
-/* 
-	This class is used to read the temperature from a DS18B20 using the RPI's one wire interface
-*/
-class TempReader{
-
-	private:
-		char * w1file[128];
-	
-	public:
-		static void loadKernelModules();
-		void getFileName();
-		float readTemp();
-		
-};
+const int BUFFERSIZE = 256;
    
-/*
-	Adds the neccessary loadable kernel modules.
-	This must be run prior to executing any other functions in this class 
-	Returns 0 on success
-	Returns 1 on failure
-*/    
-static void TempReader::loadKernelModules(){
-	if (system(TOSTRING(W1GPIO)) == -1 || system(TOSTRING(W1THERM)) == -1){
-		cerr << "Couldn't load the neccessary kernal modules" << endl;
-  		return 1;
+void TempReader::loadKernelModules(){
+
+	// Loads the w1-gpio and w1-therm kernal modules by executing the modprobe linux command.
+	if (system(W1GPIO.c_str()) == -1 || system(W1THERM.c_str()) == -1){
+		std::cerr << "Couldn't load the neccessary 1-wire kernal modules" << std::endl;
+  		throw new std::runtime_error(NULL);
 	}
-	return 0;
 }     
     
-/* 
-	Obtains the name of the file that w1 linux system file.
-	This file has a variable name.
-*/
-void TempReader::getFileName(){   
+TempReader::TempReader(std::string deviceName){
 
-	DIR *dir;
- 	struct dirent *dirent;
-  
- 	dir = opendir(W1PATH);
- 	if (dir){
-  		while ((dirent = readdir(dir))) 
-  			if (strstr(dirent->d_name, "28-")) 
-  				sprintf(w1file, "%s/%s/w1_slave", W1PATH, dirent->d_name);
-		closedir(dir);
-	} else {
-  		cerr << "Couldn't open the w1 devices directory" << endl;
-  		return 0;
- 	} 
- 	
+	// Construct the full file name of the 1-wire device using the specified device name.
+	w1FileName = W1PATH + deviceName + W1FILE;
+
+	// Open the 1-wire device file ready for reading.
+	w1File.open(w1FileName.c_str());
+	if(!w1File.is_open()) {
+		std::cerr << "Couldn't create TempReader as device name is not valid" << std::endl;
+		throw new std::runtime_error(NULL);
+	}
+
+}
+
+TempReader::~TempReader(){
+
+	w1File.close();
+
 }
 
 float TempReader::readTemp(){
-	int fd = open(w1file, O_RDONLY);
-  		if(fd == -1) {
-   			perror ("Couldn't open the w1 device.");
-   			return 1;   
-  		}
-  		while((numRead = read(fd, buf, 256)) > 0){
-   			strncpy(tmpData, strstr(buf, "t=") + 2, 5); 
-   			float tempC = strtof(tmpData, NULL);
-   			printf("Temp: %.3f C\n", tempC / 1000);
-  		}
-  		close(fd);
+
+	int length;
+	char * buffer;
+	char * start;
+	char * end;
+	float temp;
+
+	// Check the 1-wire device file is open, if not attempt to open it.
+  	if (!w1File.is_open()) {
+  		w1File.open(w1FileName.c_str());
+		if(!w1File.is_open()) {
+			std::cerr << "Couldn't read the temperature as the 1-wire device file could not be accessed" << std::endl;
+			throw new std::runtime_error(NULL);
+		}
+  	}
+
+  	// Get the length of the file contents.
+    w1File.seekg (0, w1File.end);
+    length = w1File.tellg();
+    w1File.seekg (0, w1File.beg);
+
+    // Check the file is not empty.
+    if (!length){
+    	std::cerr << "Couldn't read the temperature as the 1-wire device file was empty" << std::endl;
+    	throw new std::runtime_error(NULL);
+    }
+
+    // Read the contents of the file.
+    buffer = new char[length];
+    w1File.read(buffer,length);
+
+	// Extract the temperature value from the file contents.
+	// Temperature must be divided by 1000 to get value in degrees celcius.
+    start = strstr(buffer, "t=");
+    if (!start) {
+    	std::cerr << "Couldn't read the temperature as the 1-wire device contents was not valid" << std::endl;
+    	throw new std::runtime_error(NULL);
+    }
+    start = start + 2;
+    end = start + 7;
+    temp = strtof(start, &end) / 1000;
+
+	// Free up the buffer storage.
+	delete buffer;
+	 
+   	return temp;
 
 }
-int main (void) {
-
- 	char buf[256];     // Data from device
- 	char tmpData[6];   // Temp C * 1000 reported by device 
- 	
-
- 	
- 	ssize_t numRead;
- 
-
-	
-
-}
-
