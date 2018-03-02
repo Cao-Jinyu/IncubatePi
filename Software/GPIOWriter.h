@@ -28,10 +28,16 @@ class GPIOWriter{
         ~GPIOWriter();
 
         /*
-            Sets the pin high or low according to the specified value.
+            Sets the pin high.
             Throws a runtime_error() if the pin value file could not be accessed.
         */
-        void write(bool value);
+        void high();
+
+        /*
+            Sets the pin low.
+            Throws a runtime_error() if the pin value file could not be accessed.
+        */
+        void low();
 };
 
 #endif

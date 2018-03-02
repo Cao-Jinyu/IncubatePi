@@ -77,7 +77,7 @@ GPIOWriter::~GPIOWriter(){
 
 }
 
-void GPIOWriter::write(bool value){
+void GPIOWriter::high(){
 
 	// Check the pin value system file is open.
 	if (!valueFile.is_open()){
@@ -85,10 +85,18 @@ void GPIOWriter::write(bool value){
 		throw new std::runtime_error(NULL);
 	}
 
-	// Set the pin value high or low as sepecified.
-	if (value)
-		valueFile << HIGH;
-	else 
-		valueFile << LOW;
+	// Set the pin value high.
+	valueFile << HIGH;
+}
 
+void GPIOWriter::low(){
+
+	// Check the pin value system file is open.
+	if (!valueFile.is_open()){
+		std::cerr << "Pin value file could not be accessed." << std::endl;
+		throw new std::runtime_error(NULL);
+	}
+
+	// Set the pin value low.
+	valueFile << LOW;
 }
