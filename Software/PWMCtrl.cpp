@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdio.h>     
+#include <stdio.h>
 #include <stdlib.h>
-#include "PWMCtrl.h"   
+#include "PWMCtrl.h"
 
 static std::string EXPORTFILE = "/sys/class/pwm/pwmchip0/export";
 static std::string BASEFILE = "/sys/class/pwm/pwmchip0/pwm";

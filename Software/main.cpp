@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include "PWMCtrl.h"
 #include "GPIOWriter.h"
 #include "ReadTemp.h"
@@ -18,29 +19,34 @@ static const int DEFAULT_DUTY_CYCLE = 20000;
 static std::string TEMP_SENSOR_1 = "";
 static std::string TEMP_SENSOR_2 = "";
 
+
 int main () {
 
-    
-    try {
+    PWMCtrl *pwm;
+    GPIOWriter *heater;
+    TempReader *neonate;
+    TempReader *ambient;
 
+    try {
         // Create a new PWMCtl for PWM chip 1, set the default period and duty cycle, and enable.
-        PWMCtrl *pwm = new PWMCtrl(PWMCHIP);
+        pwm = new PWMCtrl(PWMCHIP);
         pwm->configure(DEFAULT_PERIOD,DEFAULT_DUTY_CYCLE);
         pwm->enable();
 
         // Configure a GPIO pin to control the heater
-        GPIOWriter *heater = new GPIOWriter(HEATER_BCM_PIN);
+        heater = new GPIOWriter(HEATER_BCM_PIN);
         heater->high();
 
         // Load the neccessary linux kernal modules and then configure two temp sensors
         loadKernelModules();
-        TempReader *neonate = new TempReader(TEMP_SENSOR_1);
-        TempReader *ambient = new TempReader(TEMP_SENSOR_2);
+        neonate = new TempReader(TEMP_SENSOR_1);
+        ambient = new TempReader(TEMP_SENSOR_2);
     
     } catch(std::exception& e) {
 
-        return 1;
+        // TODO: Fix memory leaks here
 
+        return 1;
     }
 
     while (true){
@@ -58,20 +64,29 @@ int main () {
     int current_error = 0;
     int integral = 0;
     int derivative = 0;
-    int Kp = 5;                  // TODO
-    int Ki = 5;                  // TODO
-    int Kd = 5;                  // TODO
+
+    int Kp = 5;                  // TODO: Tune value
+    int Ki = 5;                  // TODO: Tune value
+    int Kd = 5;                  // TODO: Tune value
+    int output_clip = 5;         // TODO: Tune value
+
     int output = 0;
+    double heater_pwm;
 
     while(true) {
-        // Read temperatures
-        neonate_temp = neonate->readTemp();        // Read from temp sensor
+        // Read temperature
+        neonate_temp = neonate->readTemp();
 
         current_error = body_temp - neonate_temp;
         integral = integral + current_error*sample_time;
         derivative = (current_error - previous_error)/sample_time;
         output = Kp*current_error + Ki*integral + Kd*derivative;         // May require bias also?
         previous_error = current_error;
+
+        // Calculate heater PWM value
+        if (output > output_clip) output = output_clip;
+        if (output < (0 - output_clip)) output = 0 - output_clip;
+        heater_pwm = output / output_clip;
     }
 
     // Disable PWM controller

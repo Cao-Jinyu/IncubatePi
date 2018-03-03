@@ -1,5 +1,5 @@
-#ifndef PWM_CTRL
-#define PWM_CTRL
+#ifndef GPIO_WRITER
+#define GPIO_WRITER
 
 /*
     This class is used to write to a GPIO pin on a Raspberry Pi.
