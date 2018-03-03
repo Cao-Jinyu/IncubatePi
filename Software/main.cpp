@@ -5,6 +5,7 @@
 #include "PWMCtrl.h"
 #include "GPIOWriter.h"
 #include "ReadTemp.h"
+#include "PID.h"
 
 /*
     uname -r                        : Check kernel version
@@ -14,10 +15,16 @@
 
 static const int PWMCHIP = 1;
 static const int HEATER_BCM_PIN = 10;
-static const int DEFAULT_PERIOD = 40000; 
-static const int DEFAULT_DUTY_CYCLE = 20000;   
+static const int DEFAULT_PERIOD = 40000;
+static const int DEFAULT_DUTY_CYCLE = 20000;
+
 static std::string TEMP_SENSOR_1 = "";
 static std::string TEMP_SENSOR_2 = "";
+
+static const int body_temp = 37;
+static const int output_clip = 5;         // TODO: Tune value
+
+static const int sample_time = 0;         // TODO
 
 
 int main () {
@@ -41,11 +48,13 @@ int main () {
         TempReader::loadKernelModules();
         neonate = new TempReader(TEMP_SENSOR_1);
         ambient = new TempReader(TEMP_SENSOR_2);
-    
-    } catch(std::exception& e) {
 
-        // TODO: Fix memory leaks here
+    } catch(std::exception& e) {
         std::cerr << e.what();
+        delete pwm;
+        delete heater;
+        delete neonate;
+        delete ambient;
         return 1;
     }
 
@@ -54,34 +63,16 @@ int main () {
         std::cout << "Ambient Temperature:" << ambient->readTemp() << std::endl;
     }
 
-    // PID controller
+    // Main loop with PID controller
 
-    const int sample_time = 1;
-    const int body_temp = 37;
-    int neonate_temp = 0;
-
-    int previous_error = 0;
-    int current_error = 0;
-    int integral = 0;
-    int derivative = 0;
-
-    int Kp = 5;                  // TODO: Tune value
-    int Ki = 5;                  // TODO: Tune value
-    int Kd = 5;                  // TODO: Tune value
-    int output_clip = 5;         // TODO: Tune value
-
-    int output = 0;
     double heater_pwm;
+    int output = 0;
+
+    PID *temperature_PID = new PID(body_temp, sample_time);
 
     while(true) {
         // Read temperature
-        neonate_temp = neonate->readTemp();
-
-        current_error = body_temp - neonate_temp;
-        integral = integral + current_error*sample_time;
-        derivative = (current_error - previous_error)/sample_time;
-        output = Kp*current_error + Ki*integral + Kd*derivative;         // May require bias also?
-        previous_error = current_error;
+        output = temperature_PID->iterate(neonate->readTemp());
 
         // Calculate heater PWM value
         if (output > output_clip) output = output_clip;
@@ -89,10 +80,10 @@ int main () {
         heater_pwm = output / output_clip;
     }
 
-    // Disable PWM controller
     pwm->disable();
     delete pwm;
     delete heater;
     delete neonate;
     delete ambient;
+    delete temperature_PID;
 }

@@ -12,6 +12,11 @@ class PWMCtrl {
         std::string dutyCycleFileName;      // Generated linux system PWM duty cycle file name based on chip number.
         std::string enableFileName;         // Generated linux system PWM enable file name based on chip number.
 
+        static const int MIN_PERIOD = 10000;
+        static const int ENABLE = 1;
+        static const int DISABLE = 0;
+        static const int NUM_OF_CHIPS = 2;
+
     public:
 
         /*
@@ -25,8 +30,7 @@ class PWMCtrl {
         /* 
             Sets the period and duty cycle of the PWM chip.
             Must be called prior to enabling the PWM chip.
-            Throws a range error if the period or duty cycle is invalid
-            (period < MIN_PERIOD or duty cycle > period).
+            Throws a range error if the period or duty cycle is invalid.
             Throws a runtime_error if the period or duty cycle was not written successfully.
         */
         void configure(int period, int dutyCycle);

@@ -14,13 +14,8 @@ static std::string ENABLEFILE = "/enable";
 static std::string TEMPFILE = "temp";
 static std::string MODULECHECK = "lsmod | grep pwm > " + TEMPFILE;
 
-static const int MIN_PERIOD = 10000;        // Minimum allowed PWM period	
-static const int ENABLE = 1;
-static const int DISABLE = 0;
-static const int NUM_OF_CHIPS = 2;
+PWMCtrl::PWMCtrl(int pwmchip) {
 
-PWMCtrl::PWMCtrl(int pwmchip){
-		
 	std::ifstream tempFile;
 	std::ofstream exportFile;
 	std::string line;
