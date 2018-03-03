@@ -16,10 +16,9 @@ const int BUFFERSIZE = 256;
 void TempReader::loadKernelModules(){
 
 	// Loads the w1-gpio and w1-therm kernal modules by executing the modprobe linux command.
-	if (system(W1GPIO.c_str()) == -1 || system(W1THERM.c_str()) == -1){
-		std::cerr << "Couldn't load the neccessary 1-wire kernal modules" << std::endl;
-  		throw new std::runtime_error(NULL);
-	}
+	if (system(W1GPIO.c_str()) == -1 || system(W1THERM.c_str()) == -1)
+  		throw new std::runtime_error("Couldn't load the neccessary 1-wire kernal modules.\n");
+
 }     
     
 TempReader::TempReader(std::string deviceName){
@@ -29,10 +28,8 @@ TempReader::TempReader(std::string deviceName){
 
 	// Open the 1-wire device file ready for reading.
 	w1File.open(w1FileName.c_str());
-	if(!w1File.is_open()) {
-		std::cerr << "Couldn't create TempReader as device name is not valid" << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	if(!w1File.is_open())
+		throw new std::runtime_error("Couldn't create TempReader as device name is not valid.\n");
 
 }
 
@@ -53,10 +50,8 @@ float TempReader::readTemp(){
 	// Check the 1-wire device file is open, if not attempt to open it.
   	if (!w1File.is_open()) {
   		w1File.open(w1FileName.c_str());
-		if(!w1File.is_open()) {
-			std::cerr << "Couldn't read the temperature as the 1-wire device file could not be accessed" << std::endl;
-			throw new std::runtime_error(NULL);
-		}
+		if(!w1File.is_open()) 
+			throw new std::runtime_error("Couldn't read the temperature as the 1-wire device file could not be accessed.\n");
   	}
 
   	// Get the length of the file contents.
@@ -65,10 +60,8 @@ float TempReader::readTemp(){
     w1File.seekg (0, w1File.beg);
 
     // Check the file is not empty.
-    if (!length){
-    	std::cerr << "Couldn't read the temperature as the 1-wire device file was empty" << std::endl;
-    	throw new std::runtime_error(NULL);
-    }
+    if (!length)
+    	throw new std::runtime_error("Couldn't read the temperature as the 1-wire device file was empty.\n");
 
     // Read the contents of the file.
     buffer = new char[length];
@@ -77,10 +70,9 @@ float TempReader::readTemp(){
 	// Extract the temperature value from the file contents.
 	// Temperature must be divided by 1000 to get value in degrees celcius.
     start = strstr(buffer, "t=");
-    if (!start) {
-    	std::cerr << "Couldn't read the temperature as the 1-wire device contents was not valid" << std::endl;
-    	throw new std::runtime_error(NULL);
-    }
+    if (!start) 
+    	throw new std::runtime_error("Couldn't read the temperature as the 1-wire device contents was not valid.\n");
+ 
     start = start + 2;
     end = start + 7;
     temp = strtof(start, &end) / 1000;

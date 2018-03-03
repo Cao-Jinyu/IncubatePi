@@ -16,7 +16,7 @@ class PWMCtrl {
 
         /*
             Creates a new PWMCtl for the specified PWM chip. 
-            Throws an exception if the chip number is invalid.
+            Throws a range error if the chip number is invalid.
             Throws a runtime error if the PWM module check was not successful
             or if the PWM module was not successfully exported.
         */
@@ -25,7 +25,7 @@ class PWMCtrl {
         /* 
             Sets the period and duty cycle of the PWM chip.
             Must be called prior to enabling the PWM chip.
-            Throws an exception if the period or duty cycle is invalid
+            Throws a range error if the period or duty cycle is invalid
             (period < MIN_PERIOD or duty cycle > period).
             Throws a runtime_error if the period or duty cycle was not written successfully.
         */

@@ -38,14 +38,14 @@ int main () {
         heater->high();
 
         // Load the neccessary linux kernal modules and then configure two temp sensors
-        loadKernelModules();
+        TempReader::loadKernelModules();
         neonate = new TempReader(TEMP_SENSOR_1);
         ambient = new TempReader(TEMP_SENSOR_2);
     
     } catch(std::exception& e) {
 
         // TODO: Fix memory leaks here
-
+        std::cerr << e.what();
         return 1;
     }
 
@@ -56,7 +56,7 @@ int main () {
 
     // PID controller
 
-    const int sample_time = 0;
+    const int sample_time = 1;
     const int body_temp = 37;
     int neonate_temp = 0;
 

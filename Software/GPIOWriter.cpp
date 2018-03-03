@@ -19,41 +19,33 @@ GPIOWriter::GPIOWriter(int pin){
 
 	std::ofstream exportFile;
 	std::ofstream directionFile;
-	std::stringstream directionFileName;
-	std::stringstream valueFileName;
+	std::string directionFileName;
+	std::string valueFileName;
 
 	// Check that the specified pin is valid.
-	if (pin < 0 || pin > MAXPIN){
-		std::cerr << "Couldn't create GPIOWriter as pin" << pin <<  "is not valid." << std::endl;
-		throw new std::exception();
-	}
-
+	if (pin < 0 || pin > MAXPIN)
+		throw new std::range_error("Couldn't create GPIOWriter as the pin is not valid.\n");
+	
 	// Export the required pin by writing the pin name to the gpio export file
 	exportFile.open(EXPORTFILE.c_str());
-	if(!exportFile.is_open()) {
-		std::cerr << "Couldn't create GPIOWriter on pin" << pin << "as the export file could not be opened." << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	if(!exportFile.is_open()) 
+		throw new std::runtime_error("Couldn't create GPIOWriter on pin as the export file could not be opened.\n" );
 	exportFile << pin;
 	exportFile.close();
 
 	// Sets the direction of the pin to out so that it can be written to.
-	directionFileName << FILESTRINGBASE << pin << DIRECTIONFILE;
-	directionFile.open(directionFileName.str().c_str());
-	if (!directionFile.is_open()){
-		std::cerr << "Couldn't create GPIOWriter on pin" << pin << "as the direction file could not be opened." << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	directionFileName = FILESTRINGBASE + std::to_string(pin) + DIRECTIONFILE;
+	directionFile.open(directionFileName.c_str());
+	if (!directionFile.is_open())
+		throw new std::runtime_error("Couldn't create GPIOWriter as the pin direction file could not be opened.\n");
 	directionFile << OUT;
 	directionFile.close();
 
 	// Open the pins value file ready for writing to.
-	valueFileName << FILESTRINGBASE << pin << VALUEFILE;
-	valueFile.open(valueFileName.str().c_str());
-	if (!valueFile.is_open()){
-		std::cerr << "Couldn't create GPIOWriter on pin" << pin << "as the pin value file could not be opened." << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	valueFileName = FILESTRINGBASE + std::to_string(pin) + VALUEFILE;
+	valueFile.open(valueFileName.c_str());
+	if (!valueFile.is_open())
+		throw new std::runtime_error("Couldn't create GPIOWriter as the pin value file could not be opened.\n");
 
 	// Record the pin number
 	this->pin = pin;
@@ -68,10 +60,8 @@ GPIOWriter::~GPIOWriter(){
 
 	// Unexport the required pin by writing the pin name to the gpio unexport file.
 	unexportFile.open(UNEXPORTFILE.c_str());
-	if (!unexportFile.is_open()){
-		std::cerr << "Couldn't unexport the GPIOWriter pin" << std::endl;
-		throw new std::runtime_error(NULL); 
-	}
+	if (!unexportFile.is_open())
+		throw new std::runtime_error("Couldn't unexport the GPIOWriter pin.\n"); 
 	unexportFile << pin;
 	unexportFile.close();
 
@@ -80,23 +70,21 @@ GPIOWriter::~GPIOWriter(){
 void GPIOWriter::high(){
 
 	// Check the pin value system file is open.
-	if (!valueFile.is_open()){
-		std::cerr << "Pin value file could not be accessed." << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	if (!valueFile.is_open())
+		throw new std::runtime_error("Pin value file could not be accessed.\n");
 
 	// Set the pin value high.
 	valueFile << HIGH;
+
 }
 
 void GPIOWriter::low(){
 
 	// Check the pin value system file is open.
-	if (!valueFile.is_open()){
-		std::cerr << "Pin value file could not be accessed." << std::endl;
-		throw new std::runtime_error(NULL);
-	}
+	if (!valueFile.is_open())
+		throw new std::runtime_error("Pin value file could not be accessed.\n");
 
 	// Set the pin value low.
 	valueFile << LOW;
+
 }

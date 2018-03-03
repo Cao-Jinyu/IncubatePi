@@ -15,13 +15,13 @@ class TempReader{
 		/*
 			Adds the neccessary loadable kernel modules to use the RPI 1-wire interface.
 			This must be run prior to executing any other functions in this class. 
-			Throws a runtime_error() if the modules were not successfully loaded.
+			Throws a runtime error if the modules were not successfully loaded.
 		*/    	
 		static void loadKernelModules();
 
 		/*
 			Creates a new TempReader for the specified device. 
-			Throws a runtime exception if the device name was not valid.
+			Throws a runtime error if the device name was not valid.
 		*/
 		TempReader(std::string deviceName);
 
@@ -32,7 +32,7 @@ class TempReader{
 
 		/*
 			Returns the measured temperature in degrees celcius from the DS18B20 device.
-			Throws a runtime_error() if the 1-wire device file could not be read correctly.
+			Throws a runtime error if the 1-wire device file could not be read correctly.
 		*/
 		float readTemp();
 		

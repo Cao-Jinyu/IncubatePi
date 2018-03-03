@@ -15,27 +15,27 @@ class GPIOWriter{
 
         /*
             Creates a new GPIOWriter on the specified BCM pin.
-            Throws an exception() if the pin is not valid.
-            Throws a runtime_error() if the neccessary linux system files could not be opened.
+            Throws an range error if the pin is not valid.
+            Throws a runtime error if the neccessary linux system files could not be opened.
         */
         GPIOWriter(int pin);
 
         /*
             Deconstructs a GPIOWriter. 
             The linux system files are closed and the pin is unexported.
-            Throws a runtime_error() if the pin could not be unexported. 
+            Throws a runtime errorif the pin could not be unexported. 
         */
         ~GPIOWriter();
 
         /*
             Sets the pin high.
-            Throws a runtime_error() if the pin value file could not be accessed.
+            Throws a runtime error if the pin value file could not be accessed.
         */
         void high();
 
         /*
             Sets the pin low.
-            Throws a runtime_error() if the pin value file could not be accessed.
+            Throws a runtime error if the pin value file could not be accessed.
         */
         void low();
 };
