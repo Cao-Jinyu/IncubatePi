@@ -64,9 +64,9 @@ PWMCtrl::PWMCtrl(int pwmchip){
 	exportFile.close();
 
 	// Create pwm linux system file names.
-	periodFileName = BASEFILE + std::toString(pwmchip) + PERIODFILE;
-    dutyCycleFileName = BASEFILE + std::toString(pwmchip) + DUTYCYCLEFILE;
-    enableFileName = BASEFILE + std::toString(pwmchip) + ENABLEFILE;
+	periodFileName = BASEFILE + std::to_string(pwmchip) + PERIODFILE;
+    dutyCycleFileName = BASEFILE + std::to_string(pwmchip) + DUTYCYCLEFILE;
+    enableFileName = BASEFILE + std::to_string(pwmchip) + ENABLEFILE;
 
 }
 
