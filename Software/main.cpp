@@ -18,8 +18,8 @@ static const int HEATER_BCM_PIN = 10;
 static const int DEFAULT_PERIOD = 40000;
 static const int DEFAULT_DUTY_CYCLE = 20000;
 
-static std::string TEMP_SENSOR_1 = "";
-static std::string TEMP_SENSOR_2 = "";
+static std::string TEMP_SENSOR_1 = "28-000005f4e7d6";
+static std::string TEMP_SENSOR_2 = "28-000005f50d4c";
 
 static const int body_temp = 37;
 static const int output_clip = 5;         // TODO: Tune value
@@ -58,9 +58,16 @@ int main () {
         return 1;
     }
 
+    while(true) {
+        std::cout << neonate->readTemp() << std::endl;
+        // std::cout << "Neonate Temperature: " << neonate->readTemp() << std::endl;
+        // std::cout << "Ambient Temperature: " << ambient->readTemp() << std::endl;
+    }
+
+/*
     while (true){
-        std::cout << "Baby Temperature:" << neonate->readTemp() << std::endl;
-        std::cout << "Ambient Temperature:" << ambient->readTemp() << std::endl;
+        std::cout << "Neonate Temperature :" << neonate->readTemp() << std::endl;
+        std::cout << "Ambient Temperature :" << ambient->readTemp() << std::endl;
     }
 
     // Main loop with PID controller
@@ -86,4 +93,5 @@ int main () {
     delete neonate;
     delete ambient;
     delete temperature_PID;
+*/
 }

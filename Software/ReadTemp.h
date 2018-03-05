@@ -8,8 +8,7 @@ class TempReader{
 
 	private:
 		std::string w1FileName;		// Name of the 1-wire linux system file associated with this device
-		std::ifstream w1File;		// 1-wire linux system file associated with this device
-	
+
 	public:
 
 		/*
@@ -24,11 +23,6 @@ class TempReader{
 			Throws a runtime error if the device name was not valid.
 		*/
 		TempReader(std::string deviceName);
-
-		/*
-			Deconstructs the TempReader and closes the associated device file.
-		*/
-		~TempReader();
 
 		/*
 			Returns the measured temperature in degrees celcius from the DS18B20 device.
