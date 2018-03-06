@@ -10,7 +10,7 @@ Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] [!
 
 ## Problem
 
-Premature or ill neonates often require automated temperature monitoring and control because they are unable to properly regulate their own body temperature. This is conventionally provided using expensive incubator systems, which are often unavailable to developing countries. In the developing world, where standards of health care are poor and funding is very limited, an incubator solution using inexpensive and widely accessible technology is required.
+Premature or ill neonates often require automated temperature monitoring and control because they are unable to properly regulate their own body temperature. This is conventionally provided using expensive incubator systemhtrwgbnfejaavnfdkabgifdhnngrs, which are often unavailable to developing countries. In the developing world, where standards of health care are poor and funding is very limited, an incubator solution using inexpensive and widely accessible technology is required.
 
 ## Solution
 
