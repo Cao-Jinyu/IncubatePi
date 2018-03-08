@@ -144,13 +144,21 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\rtep5.dsn")
-      (Path "Design Resources" ".\rtep5.dsn" "SCHEMATIC1")
-      (Path "Design Resources" ".\rtep5.dsn" "Design Cache")
+      (Path "Design Resources"
+         "H:\IncubatePi\Circuit Design\Power PCB\Schematic\rtep5.dsn")
+      (Path "Design Resources"
+         "H:\IncubatePi\Circuit Design\Power PCB\Schematic\rtep5.dsn"
+         "SCHEMATIC1")
+      (Path "Design Resources"
+         "H:\IncubatePi\Circuit Design\Power PCB\Schematic\rtep5.dsn"
+         "Design Cache")
       (Path "Design Resources" "Library")
-      (Path "Design Resources" "Library" "..\parts\rtep5_parts.olb")
+      (Path "Design Resources" "Library"
+         "H:\IncubatePi\Circuit Design\Power PCB\parts\rtep5_parts.olb")
       (Path "Outputs")
-      (Select "Design Resources" ".\rtep5.dsn" "SCHEMATIC1" "PAGE1"))
+      (Select "Design Resources"
+         "H:\IncubatePi\Circuit Design\Power PCB\Schematic\rtep5.dsn"
+         "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -160,11 +168,11 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 1688 52 511")
-        (Scroll "-309 0")
+        (Placement "44 0 1 -1 -1 -8 -31 26 1368 26 485")
+        (Scroll "-162 20")
         (Zoom "100")
         (Occurrence "/"))
-      (Path "M:\INCUBATEPI\CIRCUIT DESIGN FILES\POWER PCB\SCHEMATIC\RTEP5.DSN")
+      (Path "H:\INCUBATEPI\CIRCUIT DESIGN\POWER PCB\SCHEMATIC\RTEP5.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (ISPCBBASICLICENSE "false"))
