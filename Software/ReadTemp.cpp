@@ -15,25 +15,25 @@ const int BUFFERSIZE = 256;
 
 void TempReader::loadKernelModules(){
 
-	// Loads the w1-gpio and w1-therm kernal modules by executing the modprobe linux command.
-	if (system(W1GPIO.c_str()) == -1 || system(W1THERM.c_str()) == -1)
-  		throw new std::runtime_error("Couldn't load the neccessary 1-wire kernal modules.\n");
+    // Loads the w1-gpio and w1-therm kernal modules by executing the modprobe linux command.
+    if (system(W1GPIO.c_str()) == -1 || system(W1THERM.c_str()) == -1)
+        throw new std::runtime_error("Couldn't load the neccessary 1-wire kernal modules.\n");
 
 }
 
 TempReader::TempReader(std::string deviceName){
 
-        std::ifstream w1File;
+    std::ifstream w1File;
 
-	// Construct the full file name of the 1-wire device using the specified device name.
-	w1FileName = W1PATH + deviceName + W1FILE;
+    // Construct the full file name of the 1-wire device using the specified device name.
+    w1FileName = W1PATH + deviceName + W1FILE;
 
-	// Open the 1-wire device file to check it can be accessed.
-	w1File.open(w1FileName.c_str());
-	if(!w1File.is_open())
-            throw new std::runtime_error("Couldn't create TempReader as device name is not valid.\n");
+    // Open the 1-wire device file to check it can be accessed.
+    w1File.open(w1FileName.c_str());
+    if(!w1File.is_open())
+        throw new std::runtime_error("Couldn't create TempReader as device name is not valid.\n");
 
-        w1File.close();
+    w1File.close();
 
 }
 
@@ -51,7 +51,7 @@ float TempReader::readTemp(){
     if (!w1File.is_open())
         throw new std::runtime_error("Couldn't read the temperature as the 1-wire device file could not be accessed.\n");
 
-  	// Get the length of the file contents.
+    // Get the length of the file contents.
     w1File.seekg (0, w1File.end);
     length = w1File.tellg();
     w1File.seekg (0, w1File.beg);
@@ -59,7 +59,7 @@ float TempReader::readTemp(){
     // Check the file is not empty.
     if (!length){
         w1File.close();
-    	throw new std::runtime_error("Couldn't read the temperature as the 1-wire device file was empty.\n");
+        throw new std::runtime_error("Couldn't read the temperature as the 1-wire device file was empty.\n");
     }
 
     // Read the contents of the file.
@@ -71,7 +71,7 @@ float TempReader::readTemp(){
     start = strstr(buffer, "t=");
     if (!start){
         w1File.close();
-    	throw new std::runtime_error("Couldn't read the temperature as the 1-wire device contents was not valid.\n");
+        throw new std::runtime_error("Couldn't read the temperature as the 1-wire device contents was not valid.\n");
     }
 
     start = start + 2;
