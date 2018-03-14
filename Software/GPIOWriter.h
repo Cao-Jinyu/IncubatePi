@@ -9,7 +9,7 @@ class GPIOWriter{
     private:
 
         int pin;                    // The RPI pin on which this GPIOWriter is operating.
-        std::ofstream valueFile;    // The linux system file to which the pin value should be written. 
+        std::string valueFileName;  // Stores the name of the pin value file
 
     public:
 
