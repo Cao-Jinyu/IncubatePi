@@ -28,7 +28,7 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 
 ### Software
 All required software is provided within the folder [Software](./Software). This can be compiled and executed on the RPI using the following command:
-`cmake . && make && sudo ./TempControl`
+`cmake . && make && sudo ./TempControl`.
 The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
 * **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
