@@ -1,5 +1,0 @@
-ssh -X team10@rank510iot.eng.gla.ac.uk
-
-ssh -X pi@192.168.1.181
-
-git config --global http.proxy http://wwwcache.gla.ac.uk:8080

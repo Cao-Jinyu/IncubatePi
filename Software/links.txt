@@ -1,6 +1,0 @@
-http://www.jumpnowtek.com/rpi/Using-the-Raspberry-Pi-Hardware-PWM-timers.html
-
-http://librpip.frasersdev.net/peripheral-config/pwm0and1/
-
-https://sites.google.com/site/semilleroadt/raspberry-pi-tutorials/gpio
-
