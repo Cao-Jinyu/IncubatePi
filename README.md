@@ -35,6 +35,8 @@ The software features a main class and 4 other classes as follows (full document
 * **ReadTemp:** Reads the temperature from a DS18B20 using the RPI's one wire interface. The temperate read sample rate is once every 5 seconds.
 * **PID:** Encapsulates a general PID controller.
 
+The latency between the temperature reading and the incubator temperature change has been tested to be no longer than 1 minute for temperature fluctuations of 1 degree Celsius.
+
 The main software is executed in one thread, and child threads can be created to handle the temperature measurements and other external interrupts.
 
 ### Printed Circuit Boards
