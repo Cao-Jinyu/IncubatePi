@@ -1,7 +1,7 @@
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
 
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
-*Features a Rasberry Pi, Temperature Sensors, a Heater and a Fan.*
+*Features a Rasberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
@@ -25,9 +25,7 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 ## Wiki 
 
 ### Software
-All required software is provided within the folder [Software](./Software). This can be compiled and executed on the RPI using the following command:
-`cmake . && make && sudo ./TempControl`
-The software features a main class and 4 other classes as follows (full documentation is avaliable in each of the respective header files):
+All required software is provided within the folder [Software](./Software). This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`. The software features a main class and 4 other classes as follows (full documentation is avaliable in each of the respective header files):
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
 * **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
 * **ReadTemp:** Reads the temperature from a DS18B20 using the RPI's one wire interface.
@@ -42,19 +40,17 @@ The device features three circuit boards. Two Temperature PCBs and a Power PCB a
 Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
 
 ### Bill of Materials
-All the neccessary components for this project are listed within the file [BOM.xlsx](./Circuit Design/BOM.xlsx). Links to purchase the required items are also provided. 
+All the neccessary components for this project are listed within the file [BOM.xlsx](./Circuit%20Design/BOM.xlsx). Links to purchase the required items are also provided. 
 
 ### Mechanical Assembly 
-The fan and heater box are attached to the side of the main incubator box using standard screws. Two files are provided within the [Mechanical Design](./Mechanical Design) directory for use as masks for drilling both the heater box and the main incubator box.
+The fan and heater box are attached to the side of the main incubator box using standard screws. Two files are provided within the [Mechanical Design](./Mechanical%20Design) directory for use as masks for drilling both the heater box and the main incubator box.
 
 ## University of Glasgow
-
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
 
 Course convener:    Dr Bernd Porr
 
 ## Team Members
-
 **Jack Croal**
 **Cameron Houston**
-### Chris Brown
+**Chris Brown**
