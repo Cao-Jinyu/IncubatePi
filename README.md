@@ -30,7 +30,7 @@ All required software is provided within the folder [Software](./Software). This
 The software features a main class and 4 other classes as follows (full documentation is avaliable in each of the respective header files):
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
 * **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-* **ReadTemp:** Reads the temperature from a DS18B20 using the RPI's one wire interface.
+* **ReadTemp:** Reads the temperature from a DS18B20 using the RPI's one wire interface. The temperate read sample rate is once every 5 seconds.
 * **PID:** Encapsulates a general PID controller.
 
 ### Printed Circuit Boards
