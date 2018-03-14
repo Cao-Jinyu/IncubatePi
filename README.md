@@ -1,7 +1,7 @@
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
 
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
-*Features a Rasberry Pi, Temperature Sensors, a Heater and a Fan.*  
+*Features a Rasberry Pi, temperature sensors, a heater and a fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
@@ -33,8 +33,8 @@ All required software is provided within the folder [Software](./Software). This
 
 ### Printed Circuit Boards
 The device features three circuit boards. Two Temperature PCBs and a Power PCB as described below:
-* **Temperature PCB:** This PCB contains only a temperature sensor. One of these is wrapped in elastic and attached to the neonates arm to measure its temperature. The other is placed in the incubator box to measure the ambient temperature. 
-* **Power PCB:** This PCB connects the power supplies and RPI GPIO pins to the relevant devices (fan, heater and temp. sensors).
+* **Temperature PCB:** This PCB contains only a temperature sensor. One of these is wrapped in elastic and attached to the neonates arm to measure its temperature. The other is placed in the incubator box to measure the ambient temperature. All the required design files can be found in [Temp PCB](./Cicruit%20Design/Temp%20PCB).
+* **Power PCB:** This PCB connects the power supplies and RPI GPIO pins to the relevant devices (fan, heater and temp. sensors). All the required design files can be found in [Power PCB](./Cicruit%20Design/Power%20PCB).
 
 ### Power 
 Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
@@ -51,6 +51,6 @@ Developed as part of Real Time Embedded Programming Project at the University of
 Course convener:    Dr Bernd Porr
 
 ## Team Members
-**Jack Croal**
-**Cameron Houston**
+**Jack Croal**  
+**Cameron Houston**  
 **Chris Brown**
