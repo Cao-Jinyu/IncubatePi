@@ -1,7 +1,7 @@
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
 
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
-*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
+*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
@@ -48,7 +48,7 @@ The device features three circuit boards. Two Temperature PCBs and a Power PCB a
 Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
 
 ### Bill of Materials
-All of the necessary components for this project are listed within the file [BOM.xlsx](./Circuit Design/BOM.xlsx). Links to purchase the required items are also provided. 
+All of the necessary components for this project are listed within the file [BOM.xlsx](./Circuit%20Design/BOM.xlsx). Links to purchase the required items are also provided. 
 
 ### Mechanical Assembly 
 The fan and heater box are attached to the side of the main incubator box using standard screws. Two files are provided within the [Mechanical Design](./Mechanical%20Design) directory for use as masks for drilling both the heater box and the main incubator box.
