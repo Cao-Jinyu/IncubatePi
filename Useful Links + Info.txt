@@ -1,0 +1,19 @@
+Incubator Information:
+http://www.d4surgicals.com/Infant-Incubator/index.htm
+
+Adafruit temperature sensor document
+https://cdn-learn.adafruit.com/downloads/pdf/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing.pdf
+
+http://www.jumpnowtek.com/rpi/Using-the-Raspberry-Pi-Hardware-PWM-timers.html
+
+http://librpip.frasersdev.net/peripheral-config/pwm0and1/
+
+https://sites.google.com/site/semilleroadt/raspberry-pi-tutorials/gpio
+
+
+
+ssh -X team10@rank510iot.eng.gla.ac.uk
+
+ssh -X pi@192.168.1.181
+
+git config --global http.proxy http://wwwcache.gla.ac.uk:8080
