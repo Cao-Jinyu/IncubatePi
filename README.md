@@ -39,26 +39,24 @@ The main software is executed in one thread, and child threads can be created to
 
 ### Printed Circuit Boards
 The device features three circuit boards. Two Temperature PCBs and a Power PCB as described below:
-* **Temperature PCB:** This PCB contains only a temperature sensor. One of these is wrapped in elastic and attached to the neonates arm to measure its temperature. The other is placed in the incubator box to measure the ambient temperature. 
-* **Power PCB:** This PCB connects the power supplies and RPI GPIO pins to the relevant devices (fan, heater and temp. sensors).
+* **Temperature PCB:** This PCB contains only a temperature sensor. One of these is wrapped in elastic and attached to the neonates arm to measure its temperature. The other is placed in the incubator box to measure the ambient temperature. All the required design files can be found in [Temp PCB](./Circuit%20Design/Temp%20PCB).
+* **Power PCB:** This PCB connects the power supplies and RPI GPIO pins to the relevant devices (fan, heater and temp. sensors). All the required design files can be found in [Power PCB](./Circuit%20Design/Power%20PCB).
 
 ### Power 
 Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
 
 ### Bill of Materials
-All the necessary components for this project are listed within the file [BOM.xlsx](./Circuit Design/BOM.xlsx). Links to purchase the required items are also provided. 
+All of the necessary components for this project are listed within the file [BOM.xlsx](./Circuit Design/BOM.xlsx). Links to purchase the required items are also provided. 
 
 ### Mechanical Assembly 
-The fan and heater box are attached to the side of the main incubator box using standard screws. Two files are provided within the [Mechanical Design](./Mechanical Design) directory for use as masks for drilling both the heater box and the main incubator box.
+The fan and heater box are attached to the side of the main incubator box using standard screws. Two files are provided within the [Mechanical Design](./Mechanical%20Design) directory for use as masks for drilling both the heater box and the main incubator box.
 
 ## University of Glasgow
-
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
 
 Course convener:    Dr Bernd Porr
 
 ## Team Members
-
-**Jack Croal**
-**Cameron Houston**
-### Chris Brown
+**Jack Croal**  
+**Cameron Houston**  
+**Chris Brown**
