@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
-#include "ReadTemp.h"
+#include "ReadTemp.hpp"
 
 static std::string W1GPIO = "modprobe w1-gpio";
 static std::string W1THERM = "modprobe w1-therm";

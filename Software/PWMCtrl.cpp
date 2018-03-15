@@ -3,7 +3,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-#include "PWMCtrl.h"
+#include "PWMCtrl.hpp"
 
 static std::string EXPORTFILE = "/sys/class/pwm/pwmchip0/export";   // Linux system file which is written to in order to export a PWM chip.
 static std::string BASEFILE = "/sys/class/pwm/pwmchip0/pwm";        // This is combined with a chip number to form the directory where the PWM files associated with that chip are found.

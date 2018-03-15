@@ -3,10 +3,12 @@
 #include <iostream>
 #include <fstream>
 #include <signal.h>
-#include "PWMCtrl.h"
-#include "GPIOWriter.h"
-#include "ReadTemp.h"
-#include "PID.h"
+#include <thread> 
+#include <chrono> 
+#include "PWMCtrl.hpp"
+#include "GPIOWriter.hpp"
+#include "ReadTemp.hpp"
+#include "PID.hpp"
 
 /* 
     This code is intended for execution on a RPI 3 Model B running Raspbian. 
@@ -28,13 +30,17 @@ static const int DEFAULT_PERIOD = 40000;        // Default period that will be u
 static const int DEFAULT_DUTY_CYCLE = 20000;    // Default duty cycle that will be used for the fan PWM control.
 static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly.
 static const int FAILURE = 1;                   // Used to indicate that the program has not executed correctly in some way.
+static const int HEATER_PERIOD = 10;			// Period of heater PWM in seconds
 
 static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature.
 static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature.
 
-static const int body_temp = 36.4;
-static const int output_clip = 5;         // TODO: Tune value
-static const int sample_time = 0;         // TODO
+static const int OUTPUT_CLIP = 0;	// TODO
+static const int SAMPLE_TIME = 0;   // TODO
+static const int TARGET = 0;		// TODO
+static const int P_COEFF = 0;		// TODO
+static const int D_COEFF = 0;		// TODO
+static const int I_COEFF = 0;		// TODO
 
 static PWMCtrl *pwm;            // Fan control object
 static GPIOWriter *heater;      // Heater control object
@@ -42,12 +48,60 @@ static TempReader *neonate;     // Neonate temperature sensor control object
 static TempReader *ambient;     // Ambient temperatrue sensor control object
 
 /*
+    Concrete implementation of the abstract class PID which implements the 
+    get_current_value() function by reading the current ambient temperature.
+*/
+class AmbientTempPID : public PID {
+
+    using PID::PID;
+    private:
+        int get_current_value(){ return ambient->readTemp(); }
+};  
+
+static AmbientTempPID *ambient_temp_pid; // Ambient temperature PID controller
+
+static int heater_pwm_duty_cycle = 0;	// Proportion of the heater pwm signal that is high. Must be between 0 and 1.
+
+/*
+	Controls the heater PWM signal according to the specified duty cycle.
+	The duty cycle is specified as a proportion by variable heater_pwm_duty_cycle.  
+*/
+void heater_pwm(){
+
+	int period_ms, on_time_ms, off_time_ms;
+	
+	while(true){
+	
+		// Calculate PWM on and off times base on period and duty cycle
+		period_ms = HEATER_PERIOD * 1000;
+		on_time_ms = period_ms * heater_pwm_duty_cycle;
+		off_time_ms = period_ms - on_time_ms;
+		
+		// Set the heater high and low accordingly
+		heater->high();
+		std::this_thread::sleep_for(std::chrono::milliseconds(on_time_ms));
+		heater->low();
+		std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
+
+    }
+}
+
+/*
+	Takes the PID output and converts this to a PWM duty cycle.
+	Returns the duty cycle as a number between 0 and 1.
+*/
+int heater_pid_to_pwm_map(int pid_value){
+	
+	return 0; //TODO
+}
+
+/*
     Ensures that all created objects are properly decommisioned prior to exiting the program.
     Must be provided with the current success status of execution (either SUCCESS or FAILURE).
 */
 void exit_gracefully(int success){
     
-    std::cout << "Exiting...." << endl;
+    std::cout << "Exiting...." << std::endl;
     
     try{    
             
@@ -61,6 +115,7 @@ void exit_gracefully(int success){
         }
         delete neonate;
         delete ambient;
+        delete ambient_temp_pid;
         
     } catch(std::exception& e){       
         std::cerr << e.what() << std::endl; 
@@ -75,7 +130,7 @@ void exit_gracefully(int success){
     exit(success);
     
 }
-
+			
 int main(){
 
     // Register a signal handler so that the program can exit correctly if a ctl-c signal is received.
@@ -102,31 +157,24 @@ int main(){
         exit_gracefully(FAILURE);
     }
 
-    while(true){
-        std::cout << neonate->readTemp() << std::endl;
-        // std::cout << "Neonate Temperature: " << neonate->readTemp() << std::endl;
-        // std::cout << "Ambient Temperature: " << ambient->readTemp() << std::endl;
-    }
-
-/*
-
-    // Main loop with PID controller
-
-    double heater_pwm;
-    int output = 0;
-
-    PID *temperature_PID = new PID(body_temp, sample_time);
-
-    while(true) {
-        // Read temperature
-        output = temperature_PID->iterate(neonate->readTemp());
-
-        // Calculate heater PWM value
-        if (output > output_clip) output = output_clip;
-        if (output < (0 - output_clip)) output = 0 - output_clip;
-        heater_pwm = output / output_clip;
-    }
-
+	// Create an ambient temperature PID controller and set it to start iterating.
+	ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, TARGET, OUTPUT_CLIP, P_COEFF, I_COEFF, D_COEFF);
+	ambient_temp_pid->start_pid();
+	
+	// Start a thread that controls the heater PWM signal.
+	std::thread heater_thread(heater_pwm);
     
-*/
+    while(true){
+    
+    	// Check if the output value of the PID controller is ready to be read.
+    	if (ambient_temp_pid->isReady())	
+    	
+    		// Update the pwm duty cycle based on the current PID controller output.
+    		heater_pwm_duty_cycle = heater_pid_to_pwm_map( ambient_temp_pid->get_pid_value() );
+    		
+        std::cout << ambient->readTemp() << std::endl;
+        std::cout << heater_pwm_duty_cycle << std::endl;
+        
+    }
+
 }

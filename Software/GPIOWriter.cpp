@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "GPIOWriter.h"
+#include "GPIOWriter.hpp"
 
 const std::string EXPORTFILE = "/sys/class/gpio/export";
 const std::string UNEXPORTFILE = "/sys/class/gpio/unexport";
