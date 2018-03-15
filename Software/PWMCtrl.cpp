@@ -5,14 +5,19 @@
 #include <stdlib.h>
 #include "PWMCtrl.h"
 
-static std::string EXPORTFILE = "/sys/class/pwm/pwmchip0/export";
-static std::string BASEFILE = "/sys/class/pwm/pwmchip0/pwm";
-static std::string PERIODFILE = "/period";
-static std::string DUTYCYCLEFILE = "/duty_cycle";
-static std::string ENABLEFILE = "/enable";
+static std::string EXPORTFILE = "/sys/class/pwm/pwmchip0/export";   // Linux system file which is written to in order to export a PWM chip.
+static std::string BASEFILE = "/sys/class/pwm/pwmchip0/pwm";        // This is combined with a chip number to form the directory where the PWM files associated with that chip are found.
+static std::string PERIODFILE = "/period";                          // Can be combined with BASEFILE and a chip no. to give the name of the linux system file were the PWM period should be written to.
+static std::string DUTYCYCLEFILE = "/duty_cycle";                   // As above for duty cycle.
+static std::string ENABLEFILE = "/enable";                          // As above for enable.
 
+static const int MIN_PERIOD = 10000;    // The PWM period must be at least this value in all instances
+static const int ENABLE = 1;            // Should be written to the enable file in order to enable the PWM signal.
+static const int DISABLE = 0;           // Should be written to the enable file in order to disable the PWM signal.
+static const int NUM_OF_CHIPS = 2;      // Number of PWM chips availible on the RPI being used.
+        
 static std::string TEMPFILE = "temp";
-static std::string MODULECHECK = "lsmod | grep pwm > " + TEMPFILE;
+static std::string MODULECHECK = "lsmod | grep pwm > " + TEMPFILE;  // Linux system command which outputs any installed modules containing the string "pwm" to TEMPFILE.
 
 PWMCtrl::PWMCtrl(int pwmchip) {
 
@@ -24,7 +29,7 @@ PWMCtrl::PWMCtrl(int pwmchip) {
     if (pwmchip < 0 || pwmchip >= NUM_OF_CHIPS)
         throw new std::range_error("Couldn't create PWMCtrl as chip number is invalid.\n");
     
-    // Execute Linux command that writes any modules containing the string pwm to a file temp.
+    // Execute Linux command that writes any modules containing the string "pwm" to a file temp.
     if (system(MODULECHECK.c_str()) == -1) 
         throw new std::runtime_error("PWM Module Check Error: Couldn't execute lsmod linux system command.\n");
     
@@ -33,7 +38,7 @@ PWMCtrl::PWMCtrl(int pwmchip) {
     if (!tempFile.is_open()) 
         throw new std::runtime_error("PWM Module Check Error: Couldn't open command output file.\n");
     
-    // Checks that the file is not empty. 
+    // Checks that the file is not empty. If it is empty the PWM kernal module has not been installed.
     if (!getline(tempFile,line)) {
         tempFile.close();
         throw new std::runtime_error("PWM Module Check Error: Couldn't find the neccessary kernal modules.\n");

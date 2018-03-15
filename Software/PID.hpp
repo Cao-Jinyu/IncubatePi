@@ -24,12 +24,14 @@ class PID {
         /*
             Creates a new PID controller.
         */
-        PID(int required_value, int sample_time);
+        PID(int required_value, int sample_time, int p_coeff, int i_coeff, int   );
 
         /*
             Perform next iteration of PID output calculation.
         */
         int iterate(int current_value);
+        
+        int update_required_value()
 
         void find_PID_constants();
 };

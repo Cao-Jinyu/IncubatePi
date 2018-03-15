@@ -2,28 +2,25 @@
 #define PWM_CTRL
 
 /*
-    This class is used to control a PWM chip on a Raspberry Pi.
+    This class is used to control a PWM chip on a Raspberry Pi. 
+    It allows the period and duty cycle to be set
+    and the PWM signal to be enabled and disabled as required.
 */
 class PWMCtrl {
 
     private:
 
-        std::string periodFileName;         // Generated linux system PWM period file name based on chip number.
-        std::string dutyCycleFileName;      // Generated linux system PWM duty cycle file name based on chip number.
-        std::string enableFileName;         // Generated linux system PWM enable file name based on chip number.
-
-        static const int MIN_PERIOD = 10000;
-        static const int ENABLE = 1;
-        static const int DISABLE = 0;
-        static const int NUM_OF_CHIPS = 2;
+        std::string periodFileName;         // Name of linux system file were the PWM period should be written to.
+        std::string dutyCycleFileName;      // Name of linux system file were the PWM duty cycle should be written to.
+        std::string enableFileName;         // Name of linux system file were the PWM enable state should be written to.
 
     public:
 
         /*
             Creates a new PWMCtl for the specified PWM chip. 
-            Throws a range error if the chip number is invalid.
-            Throws a runtime error if the PWM module check was not successful
-            or if the PWM module was not successfully exported.
+            Throws a range error if the PWM chip number is invalid.
+            Throws a runtime error if the PWM kernal module is not currently loaded
+            or if the PWM chip was not successfully exported.
         */
         PWMCtrl(int pwmchip);
 

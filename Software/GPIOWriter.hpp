@@ -21,8 +21,7 @@ class GPIOWriter{
         GPIOWriter(int pin);
 
         /*
-            Deconstructs a GPIOWriter. 
-            The linux system files are closed and the pin is unexported.
+            Deconstructs a GPIOWriter and the pin is unexported.
             Throws a runtime errorif the pin could not be unexported. 
         */
         ~GPIOWriter();
