@@ -80,7 +80,7 @@ int PID::update_required_value(int required_value){
 
 int PID::get_pid_value(){
 
-	output_ready == NOT_READY; // Indicate that the output is no longer ready for reading.
+	output_ready = NOT_READY; // Indicate that the output is no longer ready for reading.
 	return output;
 	
 }
