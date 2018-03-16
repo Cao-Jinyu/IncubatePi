@@ -36,7 +36,7 @@ class PID {
     public:
 
         // Creates a new PID controller with the specified PID coefficients.
-        PID(int sample_time, float require_value, float min, float max, float p_coeff, float i_coeff, float d_coeff);
+        PID(int sample_time, float required_value, float min, float max, float p_coeff, float i_coeff, float d_coeff);
         	
         // Should be called once to begin the PID iteration process
         void start_pid();   
