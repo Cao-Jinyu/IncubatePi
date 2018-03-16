@@ -25,22 +25,25 @@
 */
 
 static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35).
-static const int HEATER_BCM_PIN = 10;           // BCM (GPIO) Pin on the RPI that the heater will be connected to. (BCM pin 10 is connected to GPIO pin 19).
-static const int DEFAULT_PERIOD = 40000;        // Default period that will be used for the fan PWM control.
-static const int DEFAULT_DUTY_CYCLE = 20000;    // Default duty cycle that will be used for the fan PWM control.
+static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to. (BCM pin 10 is connected to GPIO pin 19).
+static const int DEFAULT_PERIOD = 40000;        // Default period that will be used for the fan PWM control in nanoseconds.
+static const int DEFAULT_DUTY_CYCLE = 20000;    // Default duty cycle that will be used for the fan PWM control in nanoseconds.
 static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly.
 static const int FAILURE = 1;                   // Used to indicate that the program has not executed correctly in some way.
-static const int HEATER_PERIOD = 10;			// Period of heater PWM in seconds
+static const int HEATER_PERIOD = 30;            // Period of heater PWM in seconds
 
 static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature.
 static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature.
 
-static const int OUTPUT_CLIP = 0;	// TODO
-static const int SAMPLE_TIME = 0;   // TODO
-static const int TARGET = 0;		// TODO
-static const int P_COEFF = 0;		// TODO
-static const int D_COEFF = 0;		// TODO
-static const int I_COEFF = 0;		// TODO
+static const int MIN = 0;           // The minimum possible value of the PID output.
+static const int MAX = 1;           // The maximum possible value of the PID output.
+static const int SAMPLE_TIME = TODO;// The time in seconds between PID iterations.
+static const float TARGET = 28.0;   // The target temperature of the PID process.
+static const float P_COEFF = TODO;  // PID proportional coefficient.
+static const float D_COEFF = TODO;  // PID integral coefficient.
+static const float I_COEFF = TODO;  // PID differential coefficient.
+
+static int heater_pwm_duty_cycle = 0;   // Proportion of the heater pwm signal that is high. Must be between 0 and 1.
 
 static PWMCtrl *pwm;            // Fan control object
 static GPIOWriter *heater;      // Heater control object
@@ -60,39 +63,28 @@ class AmbientTempPID : public PID {
 
 static AmbientTempPID *ambient_temp_pid; // Ambient temperature PID controller
 
-static int heater_pwm_duty_cycle = 0;	// Proportion of the heater pwm signal that is high. Must be between 0 and 1.
-
 /*
-	Controls the heater PWM signal according to the specified duty cycle.
-	The duty cycle is specified as a proportion by variable heater_pwm_duty_cycle.  
+    Controls the heater PWM signal according to the specified duty cycle.
+    The duty cycle is specified as a proportion (between 0 and 1) by variable heater_pwm_duty_cycle.  
 */
 void heater_pwm(){
 
-	int period_ms, on_time_ms, off_time_ms;
-	
-	while(true){
-	
-		// Calculate PWM on and off times base on period and duty cycle
-		period_ms = HEATER_PERIOD * 1000;
-		on_time_ms = period_ms * heater_pwm_duty_cycle;
-		off_time_ms = period_ms - on_time_ms;
-		
-		// Set the heater high and low accordingly
-		heater->high();
-		std::this_thread::sleep_for(std::chrono::milliseconds(on_time_ms));
-		heater->low();
-		std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
+    int period_ms, on_time_ms, off_time_ms;
+    
+    while(true){
+    
+        // Calculate PWM on and off times base on period and duty cycle
+        period_ms = HEATER_PERIOD * 1000;
+        on_time_ms = period_ms * heater_pwm_duty_cycle;
+        off_time_ms = period_ms - on_time_ms;
+        
+        // Set the heater high and low accordingly
+        heater->high();
+        std::this_thread::sleep_for(std::chrono::milliseconds(on_time_ms));
+        heater->low();
+        std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
 
     }
-}
-
-/*
-	Takes the PID output and converts this to a PWM duty cycle.
-	Returns the duty cycle as a number between 0 and 1.
-*/
-int heater_pid_to_pwm_map(int pid_value){
-	
-	return 0; //TODO
 }
 
 /*
@@ -130,7 +122,7 @@ void exit_gracefully(int success){
     exit(success);
     
 }
-			
+            
 int main(){
 
     // Register a signal handler so that the program can exit correctly if a ctl-c signal is received.
@@ -142,9 +134,8 @@ int main(){
         pwm->configure(DEFAULT_PERIOD,DEFAULT_DUTY_CYCLE);
         pwm->enable();
 
-        // Configure a GPIO pin to control the heater and turn it on
+        // Configure a GPIO pin to control the heater 
         heater = new GPIOWriter(HEATER_BCM_PIN);
-        heater->high();
 
         // Load the neccessary linux kernal modules and then configure two temp sensors.
         TempReader::loadKernelModules();
@@ -157,21 +148,21 @@ int main(){
         exit_gracefully(FAILURE);
     }
 
-	// Create an ambient temperature PID controller and set it to start iterating.
-	ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, TARGET, OUTPUT_CLIP, P_COEFF, I_COEFF, D_COEFF);
-	ambient_temp_pid->start_pid();
-	
-	// Start a thread that controls the heater PWM signal.
-	std::thread heater_thread(heater_pwm);
+    // Create an ambient temperature PID controller and set it to start iterating.
+    ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, TARGET, MIN, MAX, P_COEFF, I_COEFF, D_COEFF);
+    ambient_temp_pid->start_pid();
+    
+    // Start a thread that controls the heater PWM signal.
+    std::thread heater_thread(heater_pwm);
     
     while(true){
     
-    	// Check if the output value of the PID controller is ready to be read.
-    	if (ambient_temp_pid->isReady())	
-    	
-    		// Update the pwm duty cycle based on the current PID controller output.
-    		heater_pwm_duty_cycle = heater_pid_to_pwm_map( ambient_temp_pid->get_pid_value() );
-    		
+        // Check if the output value of the PID controller is ready to be read.
+        if (ambient_temp_pid->isReady())    
+        
+            // Update the pwm duty cycle based on the current PID controller output.
+            heater_pwm_duty_cycle = ambient_temp_pid->get_pid_value();
+            
         std::cout << ambient->readTemp() << std::endl;
         std::cout << heater_pwm_duty_cycle << std::endl;
         

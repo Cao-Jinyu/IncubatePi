@@ -6,12 +6,10 @@
 #include <cstring>
 #include "ReadTemp.hpp"
 
-static std::string W1GPIO = "modprobe w1-gpio";
-static std::string W1THERM = "modprobe w1-therm";
-static std::string W1PATH = "/sys/bus/w1/devices/";
-static std::string W1FILE = "/w1_slave";
-
-const int BUFFERSIZE = 256;
+static std::string W1GPIO = "modprobe w1-gpio";         // Command to load the 1-wire GPIO linux kernal module.
+static std::string W1THERM = "modprobe w1-therm";       // Command to load the 1-wire therm linux kernal module.
+static std::string W1PATH = "/sys/bus/w1/devices/";     // Base linux directory where the w1 devices are found.
+static std::string W1FILE = "/w1_slave";                // Name of the file within each w1 device directory for communication with the device.
 
 void TempReader::loadKernelModules(){
 
@@ -70,10 +68,10 @@ float TempReader::readTemp(){
     // Temperature must be divided by 1000 to get value in degrees celcius.
     start = strstr(buffer, "t=");
     if (!start){
+        delete buffer;
         w1File.close();
         throw new std::runtime_error("Couldn't read the temperature as the 1-wire device contents was not valid.\n");
     }
-
     start = start + 2;
     end = start + 7;
     temp = strtof(start, &end) / 1000;

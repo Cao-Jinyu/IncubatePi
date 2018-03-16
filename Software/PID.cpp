@@ -2,12 +2,9 @@
 #include <chrono> 
 #include "PID.hpp"
 
-static const int READY = 1;
-static const int NOT_READY = 0;
-
-PID::PID(int sample_time, int require_value, int output_clip, int p_coeff, int i_coeff, int d_coeff) {
+PID::PID(int sample_time, float require_value, float min, float max, float p_coeff, float i_coeff, float d_coeff) {
   
-  	// Assignin the proportion, integral and differential constants as specified.
+  	// Assign the proportion, integral and differential constants as specified.
     Kp = p_coeff;              
     Ki = i_coeff;
     Kd = d_coeff;
@@ -15,13 +12,14 @@ PID::PID(int sample_time, int require_value, int output_clip, int p_coeff, int i
     // Set the target value, sample time and maximum output value as specified.
     this->required_value = required_value;
     this->sample_time = sample_time;
-    this->output_clip = output_clip;
+    this->min = min;
+    this->max = max;
     
     // Assume that no previous error existed.
     previous_error = 0;	   
     integral = 0;
     output = 0;
-    output_ready = NOT_READY;          
+    output_ready = false;          
 
 }
 
@@ -32,12 +30,14 @@ void PID::start_pid(){
 	
 }
 	
-
 void PID::iterate() {
 
-	int current_error, derivative, current_value;
+	float current_error, derivative, current_value;
 	
 	while(true){
+        
+        // Ensure synchronization with other methods.
+        protect.lock();
 	
 		// Calulate the error from the target value.
 		current_value = this->get_current_value();
@@ -46,17 +46,20 @@ void PID::iterate() {
 		// Calulate the PID output.
 		integral = integral + current_error*sample_time;
 		derivative = (current_error - previous_error)/sample_time;	
-		output = Kp*current_error + Ki*integral + Kd*derivative; 
+		output = output - (Kp*current_error + Ki*integral + Kd*derivative); 
+        
+        // Ensure that the output is within the allowed limits.
+		if (output > max) output = max;
+        if (output < min) output = min;
 		
 		// Indicate that the output is ready for reading.
-		output_ready = READY;   
+		output_ready = true;   
 		    
 		// Record the current error so that it can be used by the next iteration.
 		previous_error = current_error;
-		
-		// Ensure that the output is within the allowed limits.
-		if (output > output_clip) output = output_clip;
-        if (output < (-output_clip)) output = -output_clip;
+        
+        // End of protected segment.
+        protect.unlock();
 
 		// Wait until the next sample time.
 		std::this_thread::sleep_for(std::chrono::seconds(sample_time));
@@ -64,7 +67,10 @@ void PID::iterate() {
 	}
 }
 
-int PID::update_required_value(int required_value){
+void PID::update_required_value(int required_value){
+    
+    // Ensure synchronization with other methods.
+    protect.lock();
 
 	this->required_value = required_value;
 	
@@ -74,18 +80,31 @@ int PID::update_required_value(int required_value){
     output = 0;
     
     // Output value is no longer ready to be read.
-    output_ready = NOT_READY;          
+    output_ready = false;  
+
+    // End of protected segment.
+    protect.unlock();
     
 }
 
-int PID::get_pid_value(){
+float PID::get_pid_value(){
+    
+    float protected_output;
 
-	output_ready = NOT_READY; // Indicate that the output is no longer ready for reading.
-	return output;
+    // Ensure synchronization with other methods.
+    protect.lock();
+    
+	output_ready = false; // Indicate that the output is no longer ready for reading.
+    protected_output = output;
+    
+    // End of protected segment.
+    protect.unlock();
+    
+	return protected_output;
 	
 }
 
-bool PID::isReady(){ return (output_ready == READY); }
+bool PID::isReady(){ return (output_ready); }
 
 
 

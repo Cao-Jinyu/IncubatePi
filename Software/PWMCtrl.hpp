@@ -11,8 +11,8 @@ class PWMCtrl {
     private:
 
         std::string periodFileName;         // Name of linux system file were the PWM period should be written to.
-        std::string dutyCycleFileName;      // Name of linux system file were the PWM duty cycle should be written to.
-        std::string enableFileName;         // Name of linux system file were the PWM enable state should be written to.
+        std::string dutyCycleFileName;      // As above for duty cycle.
+        std::string enableFileName;         // As above for enable.
 
     public:
 

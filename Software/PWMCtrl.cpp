@@ -11,7 +11,7 @@ static std::string PERIODFILE = "/period";                          // Can be co
 static std::string DUTYCYCLEFILE = "/duty_cycle";                   // As above for duty cycle.
 static std::string ENABLEFILE = "/enable";                          // As above for enable.
 
-static const int MIN_PERIOD = 10000;    // The PWM period must be at least this value in all instances
+static const int MIN_PERIOD = 10000;    // The PWM period must be at least this value in all instances.
 static const int ENABLE = 1;            // Should be written to the enable file in order to enable the PWM signal.
 static const int DISABLE = 0;           // Should be written to the enable file in order to disable the PWM signal.
 static const int NUM_OF_CHIPS = 2;      // Number of PWM chips availible on the RPI being used.
