@@ -27,19 +27,19 @@
 static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35).
 static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to. (BCM pin 10 is connected to GPIO pin 19).
 static const int DEFAULT_PERIOD = 40000;        // Default period that will be used for the fan PWM control in nanoseconds.
-static const int DEFAULT_DUTY_CYCLE = 20000;    // Default duty cycle that will be used for the fan PWM control in nanoseconds.
+static const int DEFAULT_DUTY_CYCLE = 40000;    // Default duty cycle that will be used for the fan PWM control in nanoseconds.
 static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly.
 static const int FAILURE = 1;                   // Used to indicate that the program has not executed correctly in some way.
-static const int HEATER_PERIOD = 5;            // Period of heater PWM in seconds
+static const int HEATER_PERIOD = 10;            // Period of heater PWM in seconds
 
 static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature.
 static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature.
 
 static const int MIN = 0;           // The minimum possible value of the PID output.
 static const int MAX = 1;           // The maximum possible value of the PID output.
-static const int SAMPLE_TIME = 5;   // The time in seconds between PID iterations.
-static const float TARGET = 28;     // The target temperature of the PID process.
-static const float P_COEFF = 0.4;   // PID proportional coefficient.
+static const int SAMPLE_TIME = 10;  // The time in seconds between PID iterations.
+static const float TARGET = 29;     // The target temperature of the PID process.
+static const float P_COEFF = 0.05;  // PID proportional coefficient.
 static const float D_COEFF = 0;     // PID integral coefficient.
 static const float I_COEFF = 0;     // PID differential coefficient.
 

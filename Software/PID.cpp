@@ -35,41 +35,42 @@ void PID::start_pid(){
 void PID::iterate() {
 
 	float current_error, derivative, current_value;
-	
+
 	while(true){
 
         // Ensure synchronization with other methods.
         protect.lock();
 
-		// Calulate the error from the target value.
-		current_value = this->get_current_value();
-		current_error = current_value - required_value;
-                std::cout << "Current Error: " << current_error << std::endl;
-                std::cout << "Proportional: " << Kp*current_error << std::endl;
-		
-		// Calulate the PID output.
-		integral = integral + current_error*sample_time;
-		derivative = (current_error - previous_error)/sample_time;	
-		output = -(Kp*current_error + Ki*integral + Kd*derivative);
-               std::cout <<  "Output: " << output << std::endl;
-        
+	// Calulate the error from the target value.
+        current_value = this->get_current_value();
+	current_error = current_value - required_value;
+        std::cout << "Current Error: " << current_error << std::endl;
+        std::cout << "Proportional:  " << Kp*current_error << std::endl;
+
+	// Calulate the PID output.
+	integral = integral + current_error*sample_time;
+        std::cout << "Integral:      " << Ki*integral << std::endl; 
+	derivative = (current_error - previous_error)/sample_time;
+        std::cout << "Derivative:    " << Kd*derivative << std::endl;
+	output = output - (Kp*current_error + Ki*integral + Kd*derivative);
+        std::cout << "Output:        " << output << std::endl;
+
         // Ensure that the output is within the allowed limits.
-		if (output > max) output = max;
+	if (output > max) output = max;
         if (output < min) output = min;
-		
-		// Indicate that the output is ready for reading.
-		output_ready = true;   
-		    
-		// Record the current error so that it can be used by the next iteration.
-		previous_error = current_error;
-        
+
+	// Indicate that the output is ready for reading.
+	output_ready = true;
+
+	// Record the current error so that it can be used by the next iteration.
+	previous_error = current_error;
+
         // End of protected segment.
         protect.unlock();
-        std::cout << "Output Clipped: " << output << std::endl;
 
-		// Wait until the next sample time.
-		std::this_thread::sleep_for(std::chrono::seconds(sample_time));
-		
+	// Wait until the next sample time.
+	std::this_thread::sleep_for(std::chrono::seconds(sample_time));
+
 	}
 }
 
@@ -110,7 +111,7 @@ float PID::get_pid_value(){
 
 }
 
-bool PID::isReady(){ return (output_ready); }
+bool PID::isReady(){ return output_ready; }
 
 
 
