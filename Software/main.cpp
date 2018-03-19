@@ -38,7 +38,6 @@ static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique iden
 static const int MIN = 0;               // The minimum possible value of the PID output
 static const int MAX = 1;               // The maximum possible value of the PID output
 static const int SAMPLE_TIME = 10;      // The time in seconds between PID iterations
-static const float TARGET = 32;         // The target temperature of the PID process
 static const float P_COEFF = 0.12000;   // PID proportional coefficient
 static const float D_COEFF = 0.16000;   // PID differential coefficient
 static const float I_COEFF = 0.00055;   // PID integral coefficient
@@ -84,7 +83,6 @@ void heater_pwm(){
         std::this_thread::sleep_for(std::chrono::milliseconds(on_time_ms));
         heater->low();
         std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
-
     }
 }
 
@@ -119,11 +117,10 @@ void exit_gracefully(int signum){
         std::cout << "Program executed successfully" << std::endl;
     else
         std::cout << "Program execution failed" << std::endl;
-    
+
     exit(success);
-    
 }
-            
+
 int main(){
 
     // Register a signal handler so that the program can exit correctly if a ctl-c signal is received.
@@ -141,7 +138,7 @@ int main(){
 
         // Load the neccessary linux kernal modules and then configure two temp sensors.
         TempReader::loadKernelModules();
-//        neonate = new TempReader(NEONATE_TEMP_SENSOR);
+        //neonate = new TempReader(NEONATE_TEMP_SENSOR);
         ambient = new TempReader(AMBIENT_TEMP_SENSOR);
 
     } catch(std::exception& e){
@@ -151,16 +148,18 @@ int main(){
         exit_gracefully(0);
     }
 
+    int target = 32;
+
     // Create an ambient temperature PID controller and set it to start iterating.
-    ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, TARGET, MIN, MAX, P_COEFF, I_COEFF, D_COEFF);
+    ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, target, MIN, MAX, P_COEFF, I_COEFF, D_COEFF);
     ambient_temp_pid->start_pid();
-    
+
     // Start a thread that controls the heater PWM signal.
     std::thread heater_thread(heater_pwm);
     std::ofstream file1;
     file1.open("temp10");
     while(true){
-    
+
         // Check if the output value of the PID controller is ready to be read.
        if (ambient_temp_pid->isReady())
         
@@ -170,5 +169,4 @@ int main(){
         std::cout << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
         file1 << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
     }
-
 }

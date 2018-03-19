@@ -6,7 +6,7 @@
 PID::PID(int sample_time, float required_value, float min, float max, float p_coeff, float i_coeff, float d_coeff) {
   
     // Assign the proportion, integral and differential constants as specified.
-    Kp = p_coeff;              
+    Kp = p_coeff;
     Ki = i_coeff;
     Kd = d_coeff;
     
@@ -17,11 +17,10 @@ PID::PID(int sample_time, float required_value, float min, float max, float p_co
     this->max = max;
     
     // Assume that no previous error existed.
-    previous_error = 0;	   
+    previous_error = 0;
     integral = 0;
     output = 0;
-    output_ready = false;          
-
+    output_ready = false;
 }
 
 void PID::start_pid(){
@@ -29,54 +28,50 @@ void PID::start_pid(){
     // Create and start a thread in which the PID iteration process will run.
     std::thread iteration_thread(&PID::iterate, this);
     iteration_thread.detach();
-
 }
 
 void PID::iterate() {
 
-	float current_error, derivative, current_value;
+    float current_error, derivative, current_value;
 
-	while(true){
+    while(true){
 
         // Ensure synchronization with other methods.
         protect.lock();
 
-	// Calulate the error from the target value.
+        // Calulate the error from the target value.
         current_value = this->get_current_value();
-	current_error = required_value - current_value;
+        current_error = required_value - current_value;
 
-	integral = integral + current_error*sample_time;
+        integral = integral + current_error*sample_time;
 
-	// Calulate the PID output.
-	derivative = (current_error - previous_error)/sample_time;
-	output = (Kp*current_error + Ki*integral + Kd*derivative);
+        // Calulate the PID output.
+        derivative = (current_error - previous_error)/sample_time;
+        output = (Kp*current_error + Ki*integral + Kd*derivative);
 
         // Ensure that the output is within the allowed limits.
-	if (output > max) {
-		output = max;
-	}
-        if (output < min) {
-		output = min;
-	}
+        if (output > max)
+            output = max;
+        if (output < min)
+            output = min;
 
         std::cout << "Proportional:  " << Kp*current_error << std::endl;
         std::cout << "Integral:      " << Ki*integral << std::endl; 
         std::cout << "Derivative:    " << Kd*derivative << std::endl;
         std::cout << "Output:        " << output << std::endl;
 
-	// Indicate that the output is ready for reading.
-	output_ready = true;
+        // Indicate that the output is ready for reading.
+        output_ready = true;
 
-	// Record the current error so that it can be used by the next iteration.
-	previous_error = current_error;
+        // Record the current error so that it can be used by the next iteration.
+        previous_error = current_error;
 
         // End of protected segment.
         protect.unlock();
 
-	// Wait until the next sample time.
-	std::this_thread::sleep_for(std::chrono::seconds(sample_time));
-
-	}
+        // Wait until the next sample time.
+        std::this_thread::sleep_for(std::chrono::seconds(sample_time));
+    }
 }
 
 void PID::update_required_value(float required_value){
@@ -85,18 +80,17 @@ void PID::update_required_value(float required_value){
     protect.lock();
 
     this->required_value = required_value;
-	
+    
     // Reset all accumulating variables.
-    previous_error = 0;	   
+    previous_error = 0;
     integral = 0;
     output = 0;
     
     // Output value is no longer ready to be read.
-    output_ready = false;  
+    output_ready = false;
 
     // End of protected segment.
     protect.unlock();
-    
 }
 
 float PID::get_pid_value(){
@@ -113,7 +107,6 @@ float PID::get_pid_value(){
     protect.unlock();
 
     return protected_output;
-
 }
 
 bool PID::isReady(){ return output_ready; }
