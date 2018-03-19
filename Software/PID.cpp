@@ -43,21 +43,26 @@ void PID::iterate() {
 
 	// Calulate the error from the target value.
         current_value = this->get_current_value();
-	current_error = current_value - required_value;
-        std::cout << "Current Error: " << current_error << std::endl;
-        std::cout << "Proportional:  " << Kp*current_error << std::endl;
+	current_error = required_value - current_value;
+
+	integral = integral + current_error*sample_time;
 
 	// Calulate the PID output.
-	integral = integral + current_error*sample_time;
-        std::cout << "Integral:      " << Ki*integral << std::endl; 
 	derivative = (current_error - previous_error)/sample_time;
-        std::cout << "Derivative:    " << Kd*derivative << std::endl;
-	output = output - (Kp*current_error + Ki*integral + Kd*derivative);
-        std::cout << "Output:        " << output << std::endl;
+	output = (Kp*current_error + Ki*integral + Kd*derivative);
 
         // Ensure that the output is within the allowed limits.
-	if (output > max) output = max;
-        if (output < min) output = min;
+	if (output > max) {
+		output = max;
+	}
+        if (output < min) {
+		output = min;
+	}
+
+        std::cout << "Proportional:  " << Kp*current_error << std::endl;
+        std::cout << "Integral:      " << Ki*integral << std::endl; 
+        std::cout << "Derivative:    " << Kd*derivative << std::endl;
+        std::cout << "Output:        " << output << std::endl;
 
 	// Indicate that the output is ready for reading.
 	output_ready = true;

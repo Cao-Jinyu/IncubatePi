@@ -35,13 +35,13 @@ static const int HEATER_PERIOD = 10;            // Period of heater PWM in secon
 static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature.
 static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature.
 
-static const int MIN = 0;           // The minimum possible value of the PID output.
-static const int MAX = 1;           // The maximum possible value of the PID output.
-static const int SAMPLE_TIME = 10;  // The time in seconds between PID iterations.
-static const float TARGET = 29;     // The target temperature of the PID process.
-static const float P_COEFF = 0.05;  // PID proportional coefficient.
-static const float D_COEFF = 0;     // PID integral coefficient.
-static const float I_COEFF = 0;     // PID differential coefficient.
+static const int MIN = 0;               // The minimum possible value of the PID output
+static const int MAX = 1;               // The maximum possible value of the PID output
+static const int SAMPLE_TIME = 10;      // The time in seconds between PID iterations
+static const float TARGET = 32;         // The target temperature of the PID process
+static const float P_COEFF = 0.12000;   // PID proportional coefficient
+static const float D_COEFF = 0.16000;   // PID differential coefficient
+static const float I_COEFF = 0.00055;   // PID integral coefficient
 
 static float heater_pwm_duty_cycle = 0;   // Proportion of the heater pwm signal that is high. Must be between 0 and 1.
 static int success = SUCCESS;             // Used to indicate wether the execution of the program has been successful.
