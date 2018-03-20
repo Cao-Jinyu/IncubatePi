@@ -38,8 +38,8 @@ static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique iden
 static const int MIN = 0;               // The minimum possible value of the PID output
 static const int MAX = 1;               // The maximum possible value of the PID output
 static const int SAMPLE_TIME = 10;      // The time in seconds between PID iterations
-static const float P_COEFF = 0.16000;   // PID proportional coefficient
-static const float D_COEFF = 0.50000;   // PID differential coefficient
+static const float P_COEFF = 0.14000;   // PID proportional coefficient
+static const float D_COEFF = 0.16000;   // PID differential coefficient
 static const float I_COEFF = 0.00055;   // PID integral coefficient
 
 static float heater_pwm_duty_cycle = 0;   // Proportion of the heater pwm signal that is high. Must be between 0 and 1.
@@ -93,11 +93,11 @@ void heater_pwm(){
 void exit_gracefully(int signum){
 
     std::cout << std::endl << "Exiting...." << std::endl;
-    
-    try{    
-            
+
+    try{
+
         if (pwm){
-//            pwm->disable(); // Disables the fan 
+            pwm->disable(); // Disables the fan
             delete pwm;
         }
         if (heater){
@@ -107,12 +107,12 @@ void exit_gracefully(int signum){
         delete neonate;
         delete ambient;
         delete ambient_temp_pid;
-        
-    } catch(std::runtime_error& e){       
-        std::cout << e.what() << std::endl; 
+
+    } catch(std::runtime_error& e){
+        std::cout << e.what() << std::endl;
         success = FAILURE; // The execution is considered a failure if any exceptions were thrown.
-    }  
-    
+    }
+
     if (success == SUCCESS)
         std::cout << "Program executed successfully" << std::endl;
     else
@@ -162,7 +162,7 @@ int main(){
 
         // Check if the output value of the PID controller is ready to be read.
        if (ambient_temp_pid->isReady())
-        
+
             // Update the pwm duty cycle based on the current PID controller output.
             heater_pwm_duty_cycle = ambient_temp_pid->get_pid_value();
 

@@ -1,21 +1,21 @@
-#include <thread> 
-#include <chrono> 
+#include <thread>
+#include <chrono>
 #include <iostream>
 #include "PID.hpp"
 
 PID::PID(int sample_time, float required_value, float min, float max, float p_coeff, float i_coeff, float d_coeff) {
-  
+
     // Assign the proportion, integral and differential constants as specified.
     Kp = p_coeff;
     Ki = i_coeff;
     Kd = d_coeff;
-    
+
     // Set the target value, sample time and maximum output value as specified.
     this->required_value = required_value;
     this->sample_time = sample_time;
     this->min = min;
     this->max = max;
-    
+
     // Assume that no previous error existed.
     previous_error = 0;
     integral = 0;
@@ -43,11 +43,10 @@ void PID::iterate() {
         current_value = this->get_current_value();
         current_error = required_value - current_value;
 
-        integral = integral + current_error*sample_time;
-
         // Calulate the PID output.
+        integral = integral + current_error*sample_time;
         derivative = (current_error - previous_error)/sample_time;
-        output = (Kp*current_error + Ki*integral + Kd*derivative);
+        output = Kp*current_error + Ki*integral + Kd*derivative;
 
         // Ensure that the output is within the allowed limits.
         if (output > max)
@@ -75,17 +74,17 @@ void PID::iterate() {
 }
 
 void PID::update_required_value(float required_value){
-    
+
     // Ensure synchronization with other methods.
     protect.lock();
 
     this->required_value = required_value;
-    
+
     // Reset all accumulating variables.
     previous_error = 0;
     integral = 0;
     output = 0;
-    
+
     // Output value is no longer ready to be read.
     output_ready = false;
 
