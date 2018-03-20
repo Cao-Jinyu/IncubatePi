@@ -38,9 +38,9 @@ static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique iden
 static const int MIN = 0;               // The minimum possible value of the PID output
 static const int MAX = 1;               // The maximum possible value of the PID output
 static const int SAMPLE_TIME = 10;      // The time in seconds between PID iterations
-static const float P_COEFF = 0.14000;   // PID proportional coefficient
+static const float P_COEFF = 0.14500;   // PID proportional coefficient
 static const float D_COEFF = 0.16000;   // PID differential coefficient
-static const float I_COEFF = 0.00055;   // PID integral coefficient
+static const float I_COEFF = 0.00062;   // PID integral coefficient
 
 static float heater_pwm_duty_cycle = 0;   // Proportion of the heater pwm signal that is high. Must be between 0 and 1.
 static int success = SUCCESS;             // Used to indicate wether the execution of the program has been successful.
@@ -148,7 +148,7 @@ int main(){
         exit_gracefully(0);
     }
 
-    int target = 29;
+    float target = 32.1;
 
     // Create an ambient temperature PID controller and set it to start iterating.
     ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, target, MIN, MAX, P_COEFF, I_COEFF, D_COEFF);
