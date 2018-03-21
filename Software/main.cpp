@@ -13,7 +13,7 @@
 /*
     This code is intended for execution on a RPI 3 Model B running Raspbian.
 
-    In order for this code to execute correct the linux kernel version must be at least 4.9.
+    In order for this code to execute correctly the linux kernel version must be at least 4.9.
     This can be checked by executing the command:   uname -r
 
     Additionally the file: /boot/config.txt
@@ -24,35 +24,35 @@
     set to match the DS18B20 devices being used.
 */
 
-static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature.
-static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature.
+static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
+static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
 
-static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35).
-static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to (BCM pin 10 is connected to GPIO pin 19).
-static const int DEFAULT_PERIOD = 40000;        // Default period that will be used for the fan PWM control (nanoseconds).
-static const int DEFAULT_DUTY_CYCLE = 40000;    // Default duty cycle that will be used for the fan PWM control (nanoseconds).
-static const int HEATER_PERIOD = 10;            // Period of heater PWM (seconds).
+static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35)
+static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to (BCM pin 10 is connected to GPIO pin 19)
+static const int DEFAULT_PERIOD = 40000;        // Default period that will be used for the fan PWM control (nanoseconds)
+static const int DEFAULT_DUTY_CYCLE = 40000;    // Default duty cycle that will be used for the fan PWM control (nanoseconds)
+static const int HEATER_PERIOD = 10;            // Period of heater PWM (seconds)
 
-static const float NEONATE_IDEAL_MIN = 36.5;    // Lower boundary of the neonate ideal body temperature range (°C).
-static const float NEONATE_IDEAL_MAX = 37.2;    // Higher boundary of the neonate ideal body temperature range (°C).
-static const float MIN_AMBIENT_TEMP = 25.0;     // Minimum allowed target ambient temperature(°C).
-static const float MAX_AMBIENT_TEMP = 36.0;     // Maximum allowed target ambient temperature (°C).
-static const float INITIAL_TARGET = 32.0;       // Initial ambient temperature target (°C).
-static const int TEMP_READ_DELAY = 60;          // Delay between neonate temperature readings (seconds).
+static const float NEONATE_IDEAL_MIN = 36.5;    // Lower boundary of the neonate ideal body temperature range (°C)
+static const float NEONATE_IDEAL_MAX = 37.2;    // Higher boundary of the neonate ideal body temperature range (°C)
+static const float MIN_AMBIENT_TEMP = 25.0;     // Minimum allowed target ambient temperature(°C)
+static const float MAX_AMBIENT_TEMP = 36.0;     // Maximum allowed target ambient temperature (°C)
+static const float INITIAL_TARGET = 32.0;       // Initial ambient temperature target (°C)
+static const int TEMP_READ_DELAY = 60;          // Delay between neonate temperature readings (seconds)
 
-static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly.
-static const int FAILURE = 1;                   // Used to indicate that the program has not executed correctly in some way.
-static int success = SUCCESS;                   // Used to indicate wether the execution of the program has been successful.
+static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly
+static const int FAILURE = 1;                   // Used to indicate that the program has not executed correctly in some way
+static int success = SUCCESS;                   // Used to indicate wether the execution of the program has been successful
 
-static std::string OUTFILE = "results.txt";     // File where program output will be written to.
+static std::string OUTFILE = "results.txt";     // File where program output will be written to
 static std::ofstream outfile;
 
-static const int MIN = 0;               // The minimum possible value of the PID output.
-static const int MAX = 1;               // The maximum possible value of the PID output.
-static const int SAMPLE_TIME = 10;      // The time between PID iterations (seconds).
-static const float P_COEFF = 0.14600;   // PID proportional coefficient.
-static const float D_COEFF = 0.16000;   // PID differential coefficient.
-static const float I_COEFF = 0.00060;   // PID integral coefficient.
+static const int MIN_PID = 0;           // The minimum possible value of the PID output
+static const int MAX_PID = 1;           // The maximum possible value of the PID output
+static const int SAMPLE_TIME = 10;      // The time between PID iterations (seconds)
+static const float P_COEFF = 0.14600;   // PID proportional coefficient
+static const float D_COEFF = 0.16000;   // PID differential coefficient
+static const float I_COEFF = 0.00060;   // PID integral coefficient
 
 static PWMCtrl *pwm;            // Fan control object
 static GPIOWriter *heater;      // Heater control object
@@ -139,7 +139,7 @@ void ambient_target_select(){
 
 /*
     Ensures that all created objects are properly decommisioned prior to exiting the program.
-    Must be provided with the current success status of execution (either SUCCESS or FAILURE).
+    Updates the current success status of execution (either SUCCESS or FAILURE).
 */
 void exit_gracefully(int signum){
 
@@ -191,12 +191,12 @@ int main(){
 
         // Load the neccessary linux kernal modules and then configure two temp sensors.
         TempReader::loadKernelModules();
-        //neonate = new TempReader(NEONATE_TEMP_SENSOR);
+        neonate = new TempReader(NEONATE_TEMP_SENSOR);
         ambient = new TempReader(AMBIENT_TEMP_SENSOR);
 
     } catch(std::exception& e){
         // Program exits if any exceptions are detected.
-        std::cout << e.what() << std::endl;
+        std::cout << e.what();
         success = FAILURE;
         exit_gracefully(0);
     }
@@ -205,7 +205,7 @@ int main(){
     outfile.open(OUTFILE.c_str());
 
     // Create an ambient temperature PID controller and set it to start iterating.
-    ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, INITIAL_TARGET, MIN, MAX, P_COEFF, I_COEFF, D_COEFF);
+    ambient_temp_pid = new AmbientTempPID(SAMPLE_TIME, INITIAL_TARGET, MIN_PID, MAX_PID, P_COEFF, I_COEFF, D_COEFF);
     ambient_temp_pid->start_pid();
 
     // Start a thread that controls the heater PWM signal according to the PID output.

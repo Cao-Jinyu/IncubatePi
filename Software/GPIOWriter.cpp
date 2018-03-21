@@ -24,12 +24,12 @@ GPIOWriter::GPIOWriter(int pin){
 
     // Check that the specified pin is valid.
     if (pin < 0 || pin > MAXPIN)
-        throw new std::range_error("Couldn't create GPIOWriter as the pin is not valid.\n");
+        throw std::range_error("Couldn't create GPIOWriter as the pin is not valid.");
 
     // Export the required pin by writing the pin name to the gpio export file.
     exportFile.open(EXPORTFILE.c_str());
     if(!exportFile.is_open())
-        throw new std::runtime_error("Couldn't create GPIOWriter on pin as the export file could not be opened.\n" );
+        throw std::runtime_error("Couldn't create GPIOWriter on pin as the export file could not be opened." );
     exportFile << pin;
     exportFile.close();
 
@@ -37,7 +37,7 @@ GPIOWriter::GPIOWriter(int pin){
     directionFileName = FILESTRINGBASE + std::to_string(pin) + DIRECTIONFILE;
     directionFile.open(directionFileName.c_str());
     if (!directionFile.is_open())
-        throw new std::runtime_error("Couldn't create GPIOWriter as the pin direction file could not be opened.\n");
+        throw std::runtime_error("Couldn't create GPIOWriter as the pin direction file could not be opened.");
     directionFile << OUT;
     directionFile.close();
 
@@ -45,7 +45,7 @@ GPIOWriter::GPIOWriter(int pin){
     valueFileName = FILESTRINGBASE + std::to_string(pin) + VALUEFILE;
     valueFile.open(valueFileName.c_str());
     if (!valueFile.is_open())
-        throw new std::runtime_error("Couldn't create GPIOWriter as the pin value file could not be opened.\n");
+        throw std::runtime_error("Couldn't create GPIOWriter as the pin value file could not be opened.");
     valueFile.close();
 
     // Record the pin number
@@ -60,7 +60,7 @@ GPIOWriter::~GPIOWriter(){
     // Unexport the required pin by writing the pin name to the gpio unexport file.
     unexportFile.open(UNEXPORTFILE.c_str());
     if (!unexportFile.is_open())
-        throw new std::runtime_error("Couldn't unexport the GPIOWriter pin.\n");
+        throw std::runtime_error("Couldn't unexport the GPIOWriter pin.");
     unexportFile << pin;
     unexportFile.close();
 
@@ -73,7 +73,7 @@ void GPIOWriter::high(){
     // Open the pin value file.
     valueFile.open(valueFileName.c_str());
     if (!valueFile.is_open())
-        throw new std::runtime_error("Pin value file could not be accessed.\n");
+        throw std::runtime_error("Pin value file could not be accessed.");
 
     // Set the pin value high.
     valueFile << HIGH;
@@ -89,7 +89,7 @@ void GPIOWriter::low(){
     // Open the pin value file.
     valueFile.open(valueFileName.c_str());
     if (!valueFile.is_open())
-        throw new std::runtime_error("Pin value file could not be accessed.\n");
+        throw std::runtime_error("Pin value file could not be accessed.");
 
     // Set the pin value low.
     valueFile << LOW;
