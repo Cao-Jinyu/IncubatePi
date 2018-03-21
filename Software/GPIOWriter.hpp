@@ -22,7 +22,7 @@ class GPIOWriter{
 
         /*
             Deconstructs a GPIOWriter and the pin is unexported.
-            Throws a runtime error if the pin could not be unexported. 
+            Throws a runtime error if the pin could not be unexported.
         */
         ~GPIOWriter();
 

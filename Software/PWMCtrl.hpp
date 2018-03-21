@@ -2,7 +2,7 @@
 #define PWM_CTRL
 
 /*
-    This class is used to control a PWM chip on a Raspberry Pi. 
+    This class is used to control a PWM chip on a Raspberry Pi.
     It allows the period and duty cycle to be set
     and the PWM signal to be enabled and disabled as required.
 */
@@ -17,14 +17,14 @@ class PWMCtrl {
     public:
 
         /*
-            Creates a new PWMCtl for the specified PWM chip. 
+            Creates a new PWMCtl for the specified PWM chip.
             Throws a range error if the PWM chip number is invalid.
             Throws a runtime error if the PWM kernal module is not currently loaded
             or if the PWM chip was not successfully exported.
         */
         PWMCtrl(int pwmchip);
 
-        /* 
+        /*
             Sets the period and duty cycle of the PWM chip.
             Must be called prior to enabling the PWM chip.
             Throws a range error if the period or duty cycle is invalid.

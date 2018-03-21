@@ -28,7 +28,7 @@ GPIOWriter::GPIOWriter(int pin){
 
     // Export the required pin by writing the pin name to the gpio export file.
     exportFile.open(EXPORTFILE.c_str());
-    if(!exportFile.is_open()) 
+    if(!exportFile.is_open())
         throw new std::runtime_error("Couldn't create GPIOWriter on pin as the export file could not be opened.\n" );
     exportFile << pin;
     exportFile.close();
@@ -47,7 +47,7 @@ GPIOWriter::GPIOWriter(int pin){
     if (!valueFile.is_open())
         throw new std::runtime_error("Couldn't create GPIOWriter as the pin value file could not be opened.\n");
     valueFile.close();
-        
+
     // Record the pin number
     this->pin = pin;
 

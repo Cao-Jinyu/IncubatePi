@@ -10,7 +10,7 @@ PID::PID(int sample_time, float required_value, float min, float max, float p_co
     Ki = i_coeff;
     Kd = d_coeff;
 
-    // Set the target value, sample time and maximum output value as specified.
+    // Set the target value, sample time and minimum and maximum output values as specified.
     this->required_value = required_value;
     this->sample_time = sample_time;
     this->min = min;
@@ -55,7 +55,7 @@ void PID::iterate() {
             output = min;
 
         std::cout << "Proportional:  " << Kp*current_error << std::endl;
-        std::cout << "Integral:      " << Ki*integral << std::endl; 
+        std::cout << "Integral:      " << Ki*integral << std::endl;
         std::cout << "Derivative:    " << Kd*derivative << std::endl;
         std::cout << "Output:        " << output << std::endl;
 

@@ -15,7 +15,7 @@ static const int MIN_PERIOD = 10000;    // The PWM period must be at least this 
 static const int ENABLE = 1;            // Should be written to the enable file in order to enable the PWM signal.
 static const int DISABLE = 0;           // Should be written to the enable file in order to disable the PWM signal.
 static const int NUM_OF_CHIPS = 2;      // Number of PWM chips availible on the RPI being used.
-        
+
 static std::string TEMPFILE = "temp";
 static std::string MODULECHECK = "lsmod | grep pwm > " + TEMPFILE;  // Linux system command which outputs any installed modules containing the string "pwm" to TEMPFILE.
 
@@ -28,27 +28,27 @@ PWMCtrl::PWMCtrl(int pwmchip) {
     // Check the pwm chip number is a valid for the RPI
     if (pwmchip < 0 || pwmchip >= NUM_OF_CHIPS)
         throw new std::range_error("Couldn't create PWMCtrl as chip number is invalid.\n");
-    
+
     // Execute Linux command that writes any modules containing the string "pwm" to a file temp.
-    if (system(MODULECHECK.c_str()) == -1) 
+    if (system(MODULECHECK.c_str()) == -1)
         throw new std::runtime_error("PWM Module Check Error: Couldn't execute lsmod linux system command.\n");
-    
+
     // Opens the file where the output of the command was piped to.
     tempFile.open(TEMPFILE.c_str());
-    if (!tempFile.is_open()) 
+    if (!tempFile.is_open())
         throw new std::runtime_error("PWM Module Check Error: Couldn't open command output file.\n");
-    
+
     // Checks that the file is not empty. If it is empty the PWM kernal module has not been installed.
     if (!getline(tempFile,line)) {
         tempFile.close();
         throw new std::runtime_error("PWM Module Check Error: Couldn't find the neccessary kernal modules.\n");
-    }           
+    }
     tempFile.close();
 
     // Open the linux PWM export file.
     exportFile.open(EXPORTFILE.c_str());
     if(!exportFile.is_open())
-        throw new std::runtime_error("Couldn't carry out export as couldn't open PWM export linux system file.\n");   
+        throw new std::runtime_error("Couldn't carry out export as couldn't open PWM export linux system file.\n");
 
     // Write out the pwmchip number to export that chip.
     exportFile << pwmchip << std::endl;
@@ -62,11 +62,11 @@ PWMCtrl::PWMCtrl(int pwmchip) {
 }
 
 void PWMCtrl::configure(int period, int dutyCycle) {
-    
+
     std::ofstream periodFile;
     std::ofstream dutyCycleFile;
     std::string exceptionMessage;
-    
+
     // Check that the period is valid.
     if (period < MIN_PERIOD) {
         exceptionMessage = "Invalid period. Must be greater than " + std::to_string(MIN_PERIOD) + ".\n";
@@ -76,11 +76,11 @@ void PWMCtrl::configure(int period, int dutyCycle) {
     // Check that the duty cycle is valid
     if (dutyCycle < 0 || dutyCycle > period)
         throw new std::range_error("Invalid duty cycle. Must be between 0 and the period.\n");
-    
+
     // Open the linux PWM period file.
     periodFile.open(periodFileName.c_str());
     if(!periodFile.is_open())
-        throw new std::runtime_error("Couldn't update period as couldn't open PWM period linux system file.\n"); 
+        throw new std::runtime_error("Couldn't update period as couldn't open PWM period linux system file.\n");
 
     // Write out period to linux PWM period file
     periodFile << period << std::endl;
@@ -89,7 +89,7 @@ void PWMCtrl::configure(int period, int dutyCycle) {
     // Open the linux PWM duty cycle file
     dutyCycleFile.open(dutyCycleFileName.c_str());
     if(!dutyCycleFile.is_open())
-        throw new std::runtime_error("Couldn't update duty cycle as couldn't open PWM duty cycle linux system file.\n");  
+        throw new std::runtime_error("Couldn't update duty cycle as couldn't open PWM duty cycle linux system file.\n");
 
     // Write out duty cycle to linux PWM duty cycle file
     dutyCycleFile << dutyCycle << std::endl;
@@ -102,28 +102,28 @@ void PWMCtrl::configure(int period, int dutyCycle) {
 void PWMCtrl::enable(){
 
     std::ofstream enableFile;
-    
+
     // Open the linux PWM enable file
     enableFile.open(enableFileName.c_str());
-    if(!enableFile.is_open()) 
-        throw new std::runtime_error("Couldn't enable PWM as couldn't open PWM enable linux system file.\n");  
+    if(!enableFile.is_open())
+        throw new std::runtime_error("Couldn't enable PWM as couldn't open PWM enable linux system file.\n");
 
     // Write out enable
     enableFile << ENABLE << std::endl;
     enableFile.close();
 }
 
-void PWMCtrl::disable(){    
+void PWMCtrl::disable(){
 
     std::ofstream enableFile;
-    
+
     // Open the linux PWM enable file
     enableFile.open(enableFileName.c_str());
-    if(!enableFile.is_open()) 
-        throw new std::runtime_error("Couldn't disable PWM as couldn't open PWM enable linux system file.\n");     
+    if(!enableFile.is_open())
+        throw new std::runtime_error("Couldn't disable PWM as couldn't open PWM enable linux system file.\n");
 
     // Write out disable
     enableFile << DISABLE << std::endl;
     enableFile.close();
-    
+
 }
