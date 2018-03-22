@@ -16,47 +16,47 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 
 ## Real-time evaluation
 
-####1. Responsiveness of the application
+#### 1. Responsiveness of the application
 A fast temperature response was required to ensure fast-heating of the incubator in emergency situations. The final device was successful in achieving this. The PID temperature response times are shown below:
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/temperature_response.jpg)
 
 The full data for these results can be found [here](./Experimental%20Data).
 
-####2. Permitted latencies
+#### 2. Permitted latencies
 The latency between the temperature reading and the incubator temperature change has been tested to be no longer than 1 minute for temperature fluctuations of 1 degree Celsius.
 
-####3. Sampling rate
+#### 3. Sampling rate
 The temperature of the incubator and the neonate are both sampled every 1 second. This is to ensure sufficient data for the PID controller, modifying the heater/fan power every 5 seconds.
 
-####4. Bus protocol
+#### 4. Bus protocol
 The Raspberry Pi communicates with the DS18B20 temperature sensors using the RPI's 1-wire interface. This uses one wire to provide data, and power.
 
-####5. How many channels
+#### 5. How many channels
 Multiple temperature sensor channels can be connected to the Raspberry Pi using the 1-wire interface. The default for this is 2: one for neonate temperature and one for the incubator ambient temperature. This is passed to the GPIO and PWM outputs to control the heating element's MOSFET and the fan respectively.
 
-####6. Low level implementation: kernel or user space?
+#### 6. Low level implementation: kernel or user space?
 The main application runs in user space because it provides security and portability. Some of the external interfaces (eg. 1-wire) are implemented using loadable kernel modules.
 
-####7. Data flow from hardware to GUI to output
+#### 7. Data flow from hardware to GUI to output
 The Raspberry Pi sends data to a connected monitor using 
 
-####8. Buffering of data
+#### 8. Buffering of data
 The temperature data is buffered over a maximum of 5 minutes to aid in the accurate PID control of the slow-changing temperature values.
 
-####9. Buffering impacting on the real-time performance
+#### 9. Buffering impacting on the real-time performance
 The buffering of the temperature values is a low performance activity, and introduces very little latency within the application.
 
-####10. Post-processing of data, latencies and processor load
+#### 10. Post-processing of data, latencies and processor load
 The data is processed real-time as the temperature information is detected. This is post-processed in by the custom PID controller to provide the values for the heater and fan elements. This introduces a maximum latency of 5 ms, allowing for low-latency temperature changes.
 
-####11. Number of threads and load be distribution
+#### 11. Number of threads and load be distribution
 The main software is executed in one thread, and child threads are be created to handle the temperature measurements and other external interrupts. The child threads can be created depending on the number of temperature sensors connected to aid in the scalability of the application.
 
-####12. GUI implementation
+#### 12. GUI implementation
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
 
-####13. Structure of the software
+#### 13. Structure of the software
 All required software is provided within the folder [Software](./Software). This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`.
 The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
@@ -64,7 +64,7 @@ The software features a main class and 4 other classes as follows (full document
 * **ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
 * **PID:** Encapsulates a general PID controller.
 
-####14. Team structure
+#### 14. Team structure
 The team members and roles are as follows:
 
 **Jack Croal** - Hardware Developer
@@ -73,7 +73,7 @@ The team members and roles are as follows:
 
 These roles are flexible, with every team member cooperating on each section of the project to improve the common understanding within the team. Three times weekly scrum meetings are carried out to establish roles and tasks.
 
-####15. Project time allocation
+#### 15. Project time allocation
 This project was completed over 4 months.
 
 **January**: Research and initial experimental development
@@ -81,10 +81,10 @@ This project was completed over 4 months.
 **March**: Finalising of software and incubator experimental tests
 **April**: Completion of project with release and media engagement
 
-####16. Version control
+#### 16. Version control
 The git version control software was chosen due to its wide-scale use and support, and its ability to merge between branches and create releases. The software releases can be found in the [releases section](https://github.com/croaljack0/IncubatePi/releases) of this GitHub, labeled A.B where A is the major release number and B is the minor release number.
 
-####17. Release strategy and publication
+#### 17. Release strategy and publication
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
@@ -93,7 +93,7 @@ Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] [!
 
 The software and hardware schematics are released here on GitHub. Please feel free to download, under the MIT license included.
 
-####18. Success of the application
+#### 18. Success of the application
 The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [here](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
 
 ## Hardware
