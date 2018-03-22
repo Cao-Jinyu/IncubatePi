@@ -39,6 +39,7 @@ The ambient temperature of the incubator is sampled and processed every 10 secon
 
 #### 4. Bus protocol
 The Raspberry Pi communicates with the DS18B20 temperature sensors using the RPI's 1-wire interface. This uses a single wire to provide data, and power. This reduces wiring complexity and allows for multiple temperature devices connected in parallel without a chip select line for each, thus improving the flexibility and scalability.
+
 A standard PWM signal is used to control the fan.
 
 #### 5. How many channels
@@ -65,14 +66,16 @@ The main software is executed in one thread, and child threads are be created to
 #### 12. GUI implementation
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
 
-#### 13. Structure of the software
-All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`.
+#### 13. Class structure and unit tests
+All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl` within the software directory.
 The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
 
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
 * **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
 * **ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
 * **PID:** Encapsulates a general PID controller.
+
+Unit tests are included for each class, and can be executed using the command `make test` within the software directory.
 
 #### 14. Team structure
 The team members and roles are as follows:
