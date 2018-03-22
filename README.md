@@ -60,35 +60,27 @@ The GUI is implemented using QT, and is displayed on a connected monitor. The re
 All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`.
 The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
 
-**GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
-
-**PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-
-**ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
-
-**PID:** Encapsulates a general PID controller.
+* **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
+* **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
+* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
+* **PID:** Encapsulates a general PID controller.
 
 #### 14. Team structure
 The team members and roles are as follows:
 
-**Jack Croal** - Hardware Developer
-
-**Chris Brown** - Software Developer
-
-**Cameron Houston** - N/A
+* **Jack Croal** - Hardware Developer
+* **Chris Brown** - Software Developer
+* **Cameron Houston** - N/A
 
 These roles are flexible, with every team member cooperating on each section of the project to improve the common understanding within the team. Three times weekly scrum meetings are carried out to establish roles and tasks.
 
 #### 15. Project time allocation
 This project was completed over 4 months.
 
-**January**: Research and initial experimental development
-
-**February**: Hardware manufacturing and software implementation
-
-**March**: Finalising of software and incubator experimental tests
-
-**April**: Completion of project with release and media engagement
+* **January**: Research and initial experimental development
+* **February**: Hardware manufacturing and software implementation
+* **March**: Finalising of software and incubator experimental tests
+* **April**: Completion of project with release and media engagement
 
 #### 16. Version control
 The git version control software was chosen due to its wide-scale use and support, and its ability to merge between branches and create releases. The software releases can be found in the [releases section](https://github.com/croaljack0/IncubatePi/releases) of this GitHub, labeled A.B where A is the major release number and B is the minor release number.
