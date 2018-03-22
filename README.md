@@ -57,18 +57,24 @@ The main software is executed in one thread, and child threads are be created to
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
 
 #### 13. Structure of the software
-All required software is provided within the folder [Software](./Software). This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`.
+All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl`.
 The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
-* **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
-* **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
-* **PID:** Encapsulates a general PID controller.
+
+**GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
+
+**PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
+
+**ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
+
+**PID:** Encapsulates a general PID controller.
 
 #### 14. Team structure
 The team members and roles are as follows:
 
 **Jack Croal** - Hardware Developer
+
 **Chris Brown** - Software Developer
+
 **Cameron Houston** - N/A
 
 These roles are flexible, with every team member cooperating on each section of the project to improve the common understanding within the team. Three times weekly scrum meetings are carried out to establish roles and tasks.
@@ -77,8 +83,11 @@ These roles are flexible, with every team member cooperating on each section of 
 This project was completed over 4 months.
 
 **January**: Research and initial experimental development
+
 **February**: Hardware manufacturing and software implementation
+
 **March**: Finalising of software and incubator experimental tests
+
 **April**: Completion of project with release and media engagement
 
 #### 16. Version control
