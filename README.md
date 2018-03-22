@@ -4,13 +4,21 @@
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
+[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
+[facebook_url]: https://www.facebook.com/IncuPi/
+[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
+[instagram_url]: https://www.instagram.com/incupi_project
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+
 ## Problem
 
-Premature or ill neonates often require automated temperature monitoring and control because they are unable to properly regulate their own body temperature. This is conventionally provided using expensive incubator systems, which are often unavailable to developing countries. In the developing world, where standards of health care are poor and funding is very limited, an incubator solution using inexpensive and widely accessible technology is required.
+Premature or ill neonates often require automated temperature monitoring and control because they are unable to properly regulate their own body temperature. This is conventionally provided using expensive incubator systems. In the developing world, where standards of health care are poor and funding is very limited, an incubator solution using inexpensive and widely accessible technology is required.
 
 ## Solution
 
 IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi as the central control unit. Multiple temperature sensors provide information about the temperature of the neonate and the incubator ambient temperature. Embedded PID control software on the Raspberry Pi is then used to control a heater and fan system. This provides the appropriate heat control to ensure a neonate body temperature of 37 degrees Celsius.
+
+** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki/IncuPi-Wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_block_diagram.png)
 
@@ -24,13 +32,14 @@ A fast temperature response was required to ensure fast-heating of the incubator
 The full data for these results can be found [here](./Experimental%20Data).
 
 #### 2. Permitted latencies
-The latency between the temperature reading and the incubator temperature change has been tested to be no longer than 1 minute for temperature fluctuations of 1 degree Celsius.
+The latency between the temperature reading and the incubator temperature change has been tested to be no longer than 1 minute for temperature changes of 1 degree Celsius.
 
 #### 3. Sampling rate
-The temperature of the incubator and the neonate are both sampled every 1 second. This is to ensure sufficient data for the PID controller, modifying the heater/fan power every 5 seconds.
+The ambient temperature of the incubator is sampled and processed every 10 second by the PID control software. The neonate temperature is sampled every 1 minute because this temperature does not vary signification over short periods of time. This ensures sufficient data for the temperature control, modifying the heater/fan power every 5 seconds.
 
 #### 4. Bus protocol
-The Raspberry Pi communicates with the DS18B20 temperature sensors using the RPI's 1-wire interface. This uses one wire to provide data, and power.
+The Raspberry Pi communicates with the DS18B20 temperature sensors using the RPI's 1-wire interface. This uses a single wire to provide data, and power. This reduces wiring complexity and allows for multiple temperature devices connected in parallel without a chip select line for each, thus improving the flexibility and scalability.
+A standard PWM signal is used to control the fan.
 
 #### 5. How many channels
 Multiple temperature sensor channels can be connected to the Raspberry Pi using the 1-wire interface. The default for this is 2: one for neonate temperature and one for the incubator ambient temperature. This is passed to the GPIO and PWM outputs to control the heating element's MOSFET and the fan respectively.
@@ -70,7 +79,7 @@ The team members and roles are as follows:
 
 * **Jack Croal** - Hardware Developer
 * **Chris Brown** - Software Developer
-* **Cameron Houston** - N/A
+* **Cameron Houston** - GUI Implementation
 
 These roles are flexible, with every team member cooperating on each section of the project to improve the common understanding within the team. Three times weekly scrum meetings are carried out to establish roles and tasks.
 
@@ -90,28 +99,12 @@ The git version control software was chosen due to its wide-scale use and suppor
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
-Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] [![alt text][instagram_icon]][instagram_url]
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
 
 The software and hardware schematics are released here on GitHub. Please feel free to download, under the MIT license included.
 
 #### 18. Success of the application
 The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [here](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
-
-## Hardware
-
-### Printed Circuit Boards
-The device features three circuit boards. Two Temperature PCBs and a Power PCB as described below:
-* **Temperature PCB:** This PCB contains only a temperature sensor. One of these is wrapped in elastic and attached to the neonate's arm to measure its temperature. The other is placed in the incubator box to measure the ambient temperature. All the required design files can be found in [Temp PCB](./Circuit%20Design/Temp%20PCB).
-* **Power PCB:** This PCB connects the power supplies and RPI GPIO pins to the relevant devices (fan, heater and temp. sensors). All the required design files can be found in [Power PCB](./Circuit%20Design/Power%20PCB).
-
-### Power 
-Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
-
-### Bill of Materials
-All of the necessary components for this project are listed within the BOM spreadsheet [here](./Circuit%20Design). Links to purchase the required items are also provided. 
-
-### Mechanical Assembly 
-The fan and heater box are attached to the side of the main incubator box using standard screws. Two templates are provided [here](./Mechanical%20Design) for use as masks for drilling the heater box and the main incubator box.
 
 ## University of Glasgow
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
