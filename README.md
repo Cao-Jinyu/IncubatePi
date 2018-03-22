@@ -108,7 +108,7 @@ The device features three circuit boards. Two Temperature PCBs and a Power PCB a
 Power is provided to the device using an old 200 W desktop computer power supply. The required voltages are 12 V and 5 V. These supplies are connected to the power PCB using Molex Mini-Fit Jr. connectors.
 
 ### Bill of Materials
-All of the necessary components for this project are listed within the file [BOM.xlsx](./Circuit%20Design/BOM.xlsx). Links to purchase the required items are also provided. 
+All of the necessary components for this project are listed within the BOM spreadsheet [here](./Circuit%20Design). Links to purchase the required items are also provided. 
 
 ### Mechanical Assembly 
 The fan and heater box are attached to the side of the main incubator box using standard screws. Two templates are provided [here](./Mechanical%20Design) for use as masks for drilling the heater box and the main incubator box.
