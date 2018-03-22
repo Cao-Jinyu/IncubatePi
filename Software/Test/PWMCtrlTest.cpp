@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <fstream>
 #include <string>
+#include <iostream>
 
 static const int INVALID_CHIP_NUM = 2;
 static const int VALID_CHIP_NUM = 1;
@@ -15,6 +16,8 @@ int main(){
     
     PWMCtrl *testPWMCtrl;
     std::ifstream enableFile;
+    std::string enableFileName;
+    bool test_success;
     
     int passed = 0;
     
@@ -22,7 +25,7 @@ int main(){
     /*
         Test that an invalid chip number results in a range error
     */
-    bool test_success = false;
+    test_success = false;
     try { testPWMCtrl = new PWMCtrl(INVALID_CHIP_NUM); }
     catch(std::range_error& e) { test_success = true; }
     catch(std::exception& e) { assert(0); }
@@ -34,7 +37,7 @@ int main(){
     /*
         Test that an invalid period results in a range error
     */
-    bool test_success = false;
+    test_success = false;
     try { 
         testPWMCtrl = new PWMCtrl(VALID_CHIP_NUM);
         testPWMCtrl->configure(INVALID_PERIOD,VALID_DUTY_CYCLE);
@@ -49,7 +52,7 @@ int main(){
     /*
         Test that an invalid negative duty cycle results in a range error
     */
-    bool test_success = false;
+    test_success = false;
     try { 
         testPWMCtrl = new PWMCtrl(VALID_CHIP_NUM);
         testPWMCtrl->configure(VALID_PERIOD,INVALID_DUTY_CYCLE_1);
@@ -64,7 +67,7 @@ int main(){
     /*
         Test that an invalid large duty cycle results in a range error
     */
-    bool test_success = false;
+    test_success = false;
     try { 
         testPWMCtrl = new PWMCtrl(VALID_CHIP_NUM);
         testPWMCtrl->configure(VALID_PERIOD,INVALID_DUTY_CYCLE_2);
@@ -84,7 +87,7 @@ int main(){
         testPWMCtrl->configure(VALID_PERIOD,VALID_DUTY_CYCLE);
         testPWMCtrl->enable();
     } catch(std::exception& e) { assert(0); }
-    std::string enableFileName = "/sys/class/pwm/pwmchip0/pwm" + std::to_string(VALID_CHIP_NUM) + "/enable"; 
+    enableFileName = "/sys/class/pwm/pwmchip0/pwm" + std::to_string(VALID_CHIP_NUM) + "/enable"; 
     enableFile.open(enableFileName.c_str());
     assert(enableFile.get() == '1');
     passed++;
@@ -101,7 +104,7 @@ int main(){
         testPWMCtrl->enable(); // Assures that the chip was not just low anyway
         testPWMCtrl->disable();
     } catch(std::exception& e) { assert(0); }
-    std::string enableFileName = "/sys/class/pwm/pwmchip0/pwm" + std::to_string(VALID_CHIP_NUM) + "/enable"; 
+    enableFileName = "/sys/class/pwm/pwmchip0/pwm" + std::to_string(VALID_CHIP_NUM) + "/enable"; 
     enableFile.open(enableFileName.c_str());
     assert(enableFile.get() == '0');
     passed++;
@@ -111,7 +114,7 @@ int main(){
     //*****************************************************************************
     
     // Display results
-    std::cout << "Success: " << passed << " out of " << passed << " tests were successful\n"
+    std::cout << "Success: " << passed << " out of " << passed << " tests were successful\n";
     
 }
     

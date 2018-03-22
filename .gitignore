@@ -1,7 +1,6 @@
-/Software/wiringPi
-/Software/CMakeFiles
-/Software/CMakeCache.txt
-/Software/cmake_install.cmake
-/Software/Depricated
-/Software/Makefile
-/Software/TempControl
+*
+!*.*
+*CMakeFiles*
+*CMakeCache*
+*.cmake
+

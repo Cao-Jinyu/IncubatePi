@@ -1,6 +1,8 @@
 #ifndef READ_TEMP
 #define READ_TEMP
 
+#include <string>
+
 /*
     This class is used to read the temperature from a DS18B20 using the RPI's one wire interface.
 */

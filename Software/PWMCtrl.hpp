@@ -1,6 +1,8 @@
 #ifndef PWM_CTRL
 #define PWM_CTRL
 
+#include <string>
+
 /*
     This class is used to control a PWM chip on a Raspberry Pi.
     It allows the period and duty cycle to be set

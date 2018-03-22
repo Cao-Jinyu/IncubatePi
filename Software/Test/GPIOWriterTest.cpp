@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <fstream>
 #include <string>
+#include <iostream>
 
 static const int INVALID_PIN = 27;
 static const int VALID_PIN = 10;
@@ -10,6 +11,7 @@ int main(){
     
     GPIOWriter *testGPIOWriter;
     std::ifstream valueFile;
+    std::string valueFileName;
     
     int passed = 0;
     
@@ -34,7 +36,7 @@ int main(){
         testGPIOWriter = new GPIOWriter(VALID_PIN); 
         testGPIOWriter->high(); 
     } catch(std::exception& e) { assert(0); }
-    std::string valueFileName = "/sys/class/gpio/gpio" + std::to_string(VALID_PIN) + "/value";
+    valueFileName = "/sys/class/gpio/gpio" + std::to_string(VALID_PIN) + "/value";
     valueFile.open(valueFileName.c_str());
     assert(valueFile.get() == '1');
     passed++;
@@ -51,7 +53,7 @@ int main(){
         testGPIOWriter->high(); // Assures that the pin was not just low anyway
         testGPIOWriter->low(); 
     } catch(std::exception& e) { assert(0); }
-    std::string valueFileName = "/sys/class/gpio/gpio" + std::to_string(VALID_PIN) + "/value";
+    valueFileName = "/sys/class/gpio/gpio" + std::to_string(VALID_PIN) + "/value";
     valueFile.open(valueFileName.c_str());
     assert(valueFile.get() == '0');
     passed++;
@@ -61,6 +63,6 @@ int main(){
     //*****************************************************************************
     
     // Display results
-    std::cout << "Success: " << passed << " out of " << passed << " tests were successful\n"
+    std::cout << "Success: " << passed << " out of " << passed << " tests were successful\n";
     
 }

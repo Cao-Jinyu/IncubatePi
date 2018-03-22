@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstring>
-#include "ReadTemp.hpp"
+#include "TempReader.hpp"
 
 static std::string W1GPIO = "modprobe w1-gpio";         // Command to load the 1-wire GPIO linux kernal module.
 static std::string W1THERM = "modprobe w1-therm";       // Command to load the 1-wire therm linux kernal module.
