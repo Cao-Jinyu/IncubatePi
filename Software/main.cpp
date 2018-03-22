@@ -7,7 +7,7 @@
 #include <chrono>
 #include "PWMCtrl.hpp"
 #include "GPIOWriter.hpp"
-#include "ReadTemp.hpp"
+#include "TempReader.hpp"
 #include "PID.hpp"
 
 /*
