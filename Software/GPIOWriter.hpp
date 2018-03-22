@@ -1,6 +1,8 @@
 #ifndef GPIO_WRITER
 #define GPIO_WRITER
 
+#include <string>
+
 /*
     This class is used to set up and write to a GPIO pin on a Raspberry Pi.
 */
