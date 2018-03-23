@@ -24,8 +24,8 @@
     set to match the DS18B20 devices being used.
 */
 
-static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";       // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
-static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";       // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
+static std::string NEONATE_TEMP_SENSOR = "28-000005f50d4c";    // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
+static std::string AMBIENT_TEMP_SENSOR = "28-000005f4e7d6";    // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
 
 static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35)
 static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to (BCM pin 10 is connected to GPIO pin 19)
@@ -37,7 +37,7 @@ static const float NEONATE_IDEAL_MIN = 36.5;    // Lower boundary of the neonate
 static const float NEONATE_IDEAL_MAX = 37.2;    // Higher boundary of the neonate ideal body temperature range (°C)
 static const float MIN_AMBIENT_TEMP = 25.0;     // Minimum allowed target ambient temperature(°C)
 static const float MAX_AMBIENT_TEMP = 36.0;     // Maximum allowed target ambient temperature (°C)
-static const float INITIAL_TARGET = 32.0;       // Initial ambient temperature target (°C)
+static const float INITIAL_TARGET = 26.0;       // Initial ambient temperature target (°C)
 static const int TEMP_READ_DELAY = 60;          // Delay between neonate temperature readings (seconds)
 
 static const int SUCCESS = 0;                   // Used to indicate that the program has so far executed correctly
@@ -46,6 +46,7 @@ static int success = SUCCESS;                   // Used to indicate wether the e
 
 static std::string OUTFILE = "results.txt";     // File where program output will be written to
 static std::ofstream outfile;
+static float heater_pwm_duty_cycle = 0;
 
 static const int MIN_PID = 0;           // The minimum possible value of the PID output
 static const int MAX_PID = 1;           // The maximum possible value of the PID output
@@ -80,7 +81,6 @@ static AmbientTempPID *ambient_temp_pid; // Ambient temperature PID controller
 void heater_pwm(){
 
     int period_ms, on_time_ms, off_time_ms;
-    float heater_pwm_duty_cycle = 0;   
     
     while(true){
         
@@ -101,8 +101,6 @@ void heater_pwm(){
         heater->low();
         std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
         
-        std::cout << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
-        outfile << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
     }
 }
 
@@ -125,11 +123,11 @@ void ambient_target_select(){
 
         // If the neonate temperature is outwith of the ideal range, increment or decrement the target ambient temperature accordingly
         // while ensuring it does not go outwith specified limits.
-        if (neonate_temp < NEONATE_IDEAL_MIN && target_ambient_temp < MAX_AMBIENT_TEMP) target_ambient_temp++;
-        else if (neonate_temp > NEONATE_IDEAL_MAX && target_ambient_temp > MIN_AMBIENT_TEMP) target_ambient_temp--;
+        //if (neonate_temp < NEONATE_IDEAL_MIN && target_ambient_temp < MAX_AMBIENT_TEMP) target_ambient_temp++;
+        //else if (neonate_temp > NEONATE_IDEAL_MAX && target_ambient_temp > MIN_AMBIENT_TEMP) target_ambient_temp--;
         
         // Update the PID controller to the new target
-        ambient_temp_pid->update_required_value(target_ambient_temp);
+        //ambient_temp_pid->update_required_value(target_ambient_temp);
 
         std::cout << "Current Neonate Temperature: " << neonate_temp << std::endl;
         std::cout << "Target Ambient Temperature: " << target_ambient_temp << std::endl;
@@ -215,6 +213,12 @@ int main(){
     std::thread temperature_thread(ambient_target_select);
     
     // Main will now sleep forever.
-    heater_thread.join();
-    temperature_thread.join();
+    //heater_thread.join();
+    //temperature_thread.join();
+    while(true) {
+
+        std::cout << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
+        outfile << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;
+
+    }
 }
