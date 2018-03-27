@@ -18,7 +18,7 @@ Premature or ill neonates often require automated temperature monitoring and con
 
 IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi as the central control unit. Multiple temperature sensors provide information about the temperature of the neonate and the incubator ambient temperature. Embedded PID control software on the Raspberry Pi is then used to control a heater and fan system. This provides the appropriate heat control to ensure a neonate body temperature of 37 degrees Celsius.
 
-** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki/IncuPi-Wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
+** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_block_diagram.png)
 
