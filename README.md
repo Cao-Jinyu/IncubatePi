@@ -1,12 +1,12 @@
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_logo_2_lowres.png)
 
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
+[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
-[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
+[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
 
@@ -20,14 +20,14 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 
 ** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
 
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_block_diagram.png)
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_block_diagram.png)
 
 ## Real-time evaluation
 
 #### 1. Responsiveness of the application
 A fast temperature response was required to ensure fast-heating of the incubator in emergency situations. The final device was successful in achieving this. The PID temperature response times are shown below:
 
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/temperature_response.jpg)
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/temperature_response.jpg)
 
 The full data for these results can be found [here](./Experimental%20Data).
 
@@ -98,9 +98,9 @@ This project was completed over 4 months.
 The git version control software was chosen due to its wide-scale use and support, and its ability to merge between branches and create releases. The software releases can be found in the [releases section](https://github.com/croaljack0/IncubatePi/releases) of this GitHub, labeled A.B where A is the major release number and B is the minor release number.
 
 #### 17. Release strategy and publication
-[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/facebook_icon.png
+[facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
-[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/instagram_icon.png
+[instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
 
