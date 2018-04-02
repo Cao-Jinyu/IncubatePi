@@ -9,6 +9,8 @@
 #include "GPIOWriter.hpp"
 #include "TempReader.hpp"
 #include "PID.hpp"
+#include <window.h>
+#include <QApplication>
 
 /*
     This code is intended for execution on a RPI 3 Model B running Raspbian.
@@ -211,6 +213,17 @@ int main(){
     
     // Start a thread which monitors the neonate temperature and sets the target ambient temperature.
     std::thread temperature_thread(ambient_target_select);
+    
+    
+    //Start a thread which displays a QT window for control ofthe application
+    QApplication app(argc, argv);
+
+	// create the window
+	Window window;
+	window.showMaximized();
+
+	// call the window.timerEvent function every 40 ms
+	window.startTimer(40);
     
     // Main will now sleep forever.
     //heater_thread.join();
