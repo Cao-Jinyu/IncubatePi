@@ -40,8 +40,9 @@ private:
 	// layout elements from Qt itself http://qt-project.org/doc/qt-4.8/classes.html
 	QVBoxLayout  *vLayout;  // vertical layout
 	QHBoxLayout  *hLayout;  // horizontal layout
-
-	static const int plotDataSize = 100;
+    
+    //With the current refresh rate of 40ms, the graph will only display 1 second of data for every 25 samples
+	static const int plotDataSize = (25 * 60 * 10);
 
 	// data arrays for the plot
 	double xDataCurrent[plotDataSize];
