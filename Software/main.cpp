@@ -60,7 +60,7 @@ static const float I_COEFF = 0.00060;   // PID integral coefficient
 static PWMCtrl *pwm;            // Fan control object
 static GPIOWriter *heater;      // Heater control object
 static TempReader *neonate;     // Neonate temperature sensor control object
-static TempReader *ambient;     // Ambient temperatrue sensor control object
+static TempReader *ambient;     // Ambient temperature sensor control object
 
 /*
     Concrete implementation of the abstract class PID which implements the
@@ -219,7 +219,7 @@ int main(){
     QApplication app(argc, argv);
 
 	// create the window
-	Window window;
+	Window window(ambient_temp_pid, ambient);
 	window.showMaximized();
 
 	// call the window.timerEvent function every 40 ms

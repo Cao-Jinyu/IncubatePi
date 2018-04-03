@@ -4,8 +4,11 @@
 #include <cmath>  // for sine stuff
 
 
-Window::Window() : gain(5), count(0)
+Window::Window(AmbientTempPID *pid, TempReader *tempRead) : gain(40), count(0)
 {
+    pidControl = pid;
+    tempRead = temp;
+    
 	knob = new QwtKnob;
 	// set up the gain knob
 	knob->setValue(gain);
@@ -52,14 +55,15 @@ void Window::timerEvent( QTimerEvent * )
 {   
 
     //These variables are the inputs to the graph. They need to be changed to be inputs from the PID controller
-	double currentTemp = gain * sin( M_PI * count/50.0 );
-    double setTemp = 0.8 * gain;
+	double currentTemp = tempRead->readTemp();
+    double setTemp = gain;
 	++count;
 
 	// add the new input to the plot
 	memmove( yDataCurrent, yDataCurrent+1, (plotDataSize-1) * sizeof(double) );
     memmove( yDataSet, yDataSet+1, (plotDataSize-1) * sizeof(double) );
 	yDataCurrent[plotDataSize-1] = currentTemp;
+    yDataSet[plotDataSize-1] = setTemp;
 	curveCurrent->setSamples(xDataCurrent, yDataCurrent, plotDataSize);
 	curveSet->setSamples(xDataSet, yDataSet, plotDataSize);
 	plot->replot();
@@ -71,4 +75,5 @@ void Window::setGain(double gain)
 {
 	// for example purposes just change the amplitude of the generated input
 	this->gain = gain;
+    pidControl->update_required_value((float)gain);
 }
