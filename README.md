@@ -29,7 +29,7 @@ IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi a
 #### 1. Responsiveness of the application
 A fast temperature response was required to ensure fast-heating of the incubator in emergency situations. The final device was successful in achieving this. The PID temperature response times are shown below:
 
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/temperature_response.jpg)
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/temperature_response.jpg)
 
 The full data for these results can be found [here](./Experimental%20Data).
 
