@@ -4,7 +4,7 @@
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/device_image_labelled_lowres.png)
+[![Promo Video](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Video%20Files/video_thumbnail.jpg)](http://www.youtube.com/watch?v=8vy_HCOcaGk "IncuPi Project")
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
