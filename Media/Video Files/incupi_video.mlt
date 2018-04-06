@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mlt LC_NUMERIC="en_GB" version="6.7.0" title="Shotcut version 18.03.06" producer="main bin">
+  <profile description="HD 1080p 25 fps" width="1920" height="1080" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="16" display_aspect_den="9" frame_rate_num="25" frame_rate_den="1" colorspace="709"/>
+  <producer id="producer5" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133420.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">eee82ef69b5d092b4afdb4c453d21018</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer6" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133652.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">22b53413c99ac89204a3e349531db581</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer7" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133709.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">1c3ef7b7f63e92e660ecfe5052550942</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer10" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_134742.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">d8cc9e7a25c842c783b551fad84eab14</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer12" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/temperature_response_rise.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">3b44cd008f3893ea2bd254a392a958ee</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer13" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/facebook_cover.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">ec1c3703433ab9c63f6c776829dda6dd</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer15" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/information_slide.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">a555285d395bc3c65aef785a83de67b9</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer17" title="Anonymous Submission" in="00:00:00.000" out="00:02:27.200">
+    <property name="length">00:02:27.240</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/bensound-creativeminds.mp3</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="shotcut:hash">47de3f77f526670952f7abe882c617c3</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer18" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/incupi_logo_2.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">89af26dbe44a24121a5802aede788539</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer20" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/marketing_diagram.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">0fe6fecb243e2c5ea6359c85af9de8c6</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer21" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/incupi_block_diagram.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">cc36d0f134cec7ecc9c1794f0a5654d7</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer22" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/white_background.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">2f9d7d2ebfd7a6a69c2a9413974da5eb</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <playlist id="main bin">
+    <property name="xml_retain">1</property>
+    <entry producer="producer5" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer6" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer7" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer10" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer12" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer13" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer15" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer17" in="00:00:00.000" out="00:02:27.200"/>
+    <entry producer="producer18" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer20" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer21" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer22" in="00:00:00.000" out="00:00:03.960"/>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:01:03.040">
+    <property name="length">00:01:03.080</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/black</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:01:03.040"/>
+  </playlist>
+  <producer id="producer23" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.480">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/incupi_logo_2.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">89af26dbe44a24121a5802aede788539</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter0">
+      <property name="argument">  Introducing...</property>
+      <property name="geometry">2.03125%/1.57407%:48.1771%x16.2963%</property>
+      <property name="family">Verdana</property>
+      <property name="size">176</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#3b3b3b</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <producer id="producer24" title="Anonymous Submission" in="00:00:00.000" out="00:00:06.040">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/facebook_cover.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">ec1c3703433ab9c63f6c776829dda6dd</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter1">
+      <property name="argument">PROBLEM
+  In the developing world, where standards of
+  healthcare are poor and funding is very limited,
+  an infant incubator solution is required</property>
+      <property name="geometry">0/0:100%x100%</property>
+      <property name="family">Verdana</property>
+      <property name="size">270</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <producer id="producer25" title="Anonymous Submission" in="00:00:00.000" out="00:00:05.400">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133420.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">eee82ef69b5d092b4afdb4c453d21018</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter2">
+      <property name="argument">SOLUTION
+  The IncuPi is a revolutionary incubator  
+  that provides neonate incubation  
+  using inexpensive technologies!  </property>
+      <property name="geometry">1.77083%/68.3333%:96.875%x31.3889%</property>
+      <property name="family">Verdana</property>
+      <property name="size">84.75</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor0" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.760">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer24" in="00:00:03.200" out="00:00:03.960"/>
+    <track producer="producer25" in="00:00:00.000" out="00:00:00.760"/>
+    <transition id="transition0" out="00:00:00.760">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition1" out="00:00:00.760">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer26" title="Anonymous Submission" in="00:00:01.280" out="00:00:05.320">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/marketing_diagram.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">0fe6fecb243e2c5ea6359c85af9de8c6</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter3">
+      <property name="argument">  It uses a Raspberry Pi at it's center..  </property>
+      <property name="geometry">-0.416667%/79.3519%:100.99%x17.4074%</property>
+      <property name="family">Verdana</property>
+      <property name="size">188</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor1" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.680">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer25" in="00:00:04.640" out="00:00:05.320"/>
+    <track producer="producer26" in="00:00:01.360" out="00:00:02.040"/>
+    <transition id="transition2" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition3" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer27" title="Anonymous Submission" in="00:00:00.200" out="00:00:04.400">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/incupi_block_diagram.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">cc36d0f134cec7ecc9c1794f0a5654d7</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter4">
+      <property name="argument">  and integrates with multiple temperature sensors to  
+  control a heating element and a fan</property>
+      <property name="geometry">-0.3125%/74.1667%:100.625%x18.2407%</property>
+      <property name="family">Verdana</property>
+      <property name="size">98.5</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor2" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.720">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer26" in="00:00:03.760" out="00:00:04.480"/>
+    <track producer="producer27" in="00:00:00.000" out="00:00:00.720"/>
+    <transition id="transition4" out="00:00:00.720">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition5" out="00:00:00.720">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer28" title="Anonymous Submission" in="00:00:00.960" out="00:00:05.240">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133709.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">1c3ef7b7f63e92e660ecfe5052550942</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter6">
+      <property name="argument">  A custom temperature sensor fits  
+  around the arm of the infant
+</property>
+      <property name="geometry">8.22917%/75.2778%:83.6458%x25.1852%</property>
+      <property name="family">Verdana</property>
+      <property name="size">90.6667</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">3</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+      <property name="shotcut:pointSize">60</property>
+    </filter>
+  </producer>
+  <tractor id="tractor3" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.680">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer27" in="00:00:04.440" out="00:00:05.120"/>
+    <track producer="producer28" in="00:00:00.240" out="00:00:00.920"/>
+    <transition id="transition6" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition7" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer29" title="Anonymous Submission" in="00:00:00.000" out="00:00:04.200">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_133652.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">22b53413c99ac89204a3e349531db581</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter7">
+      <property name="argument">  A custom temperature sensor fits  
+  around the arm of the infant
+</property>
+      <property name="geometry">8.22917%/75.2778%:83.6458%x25.1852%</property>
+      <property name="family">Verdana</property>
+      <property name="size">90.6667</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">3</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor4" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.640">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer28" in="00:00:03.600" out="00:00:04.240"/>
+    <track producer="producer29" in="00:00:00.000" out="00:00:00.640"/>
+    <transition id="transition8" out="00:00:00.640">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition9" out="00:00:00.640">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer30" title="Anonymous Submission" in="00:00:00.000" out="00:00:05.280">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/temperature_response_rise.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">3b44cd008f3893ea2bd254a392a958ee</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter8">
+      <property name="argument">  A PID system is used to accurately control the temperature  
+  of the incubator, based on the neonate's temperature  </property>
+      <property name="geometry">3.48958%/81.6667%:92.6562%x18.3333%</property>
+      <property name="family">Verdana</property>
+      <property name="size">99</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor5" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.520">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer29" in="00:00:03.440" out="00:00:03.960"/>
+    <track producer="producer30" in="00:00:00.640" out="00:00:01.160"/>
+    <transition id="transition10" out="00:00:00.520">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition11" out="00:00:00.520">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer31" title="Anonymous Submission" in="00:00:00.560" out="00:00:04.400">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/temperature_response_rise.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">3b44cd008f3893ea2bd254a392a958ee</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <tractor id="tractor6" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.760">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer30" in="00:00:04.600" out="00:00:05.360"/>
+    <track producer="producer31" in="00:00:00.400" out="00:00:01.160"/>
+    <transition id="transition12" out="00:00:00.760">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition13" out="00:00:00.760">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer32" title="Anonymous Submission" in="00:00:00.680" out="00:00:04.440">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/IMG_20180323_134742.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">d8cc9e7a25c842c783b551fad84eab14</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter5">
+      <property name="argument">  The IncuPi has a modular design  
+  and is simple to construct  </property>
+      <property name="geometry">11.4583%/-0.648148%:77.8125%x20.6481%</property>
+      <property name="family">Verdana</property>
+      <property name="size">111.5</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#000000</property>
+      <property name="bgcolour">#78ffffff</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">10</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <tractor id="tractor7" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.600">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer31" in="00:00:03.760" out="00:00:04.360"/>
+    <track producer="producer32" in="00:00:00.040" out="00:00:00.640"/>
+    <transition id="transition14" out="00:00:00.600">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition15" out="00:00:00.600">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <producer id="producer33" title="Anonymous Submission" in="00:00:00.720" out="00:00:13.080">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/information_slide.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">a555285d395bc3c65aef785a83de67b9</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <tractor id="tractor8" title="Anonymous Submission" global_feed="1" in="00:00:00.000" out="00:00:00.680">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="producer32" in="00:00:03.760" out="00:00:04.440"/>
+    <track producer="producer33" in="00:00:00.000" out="00:00:00.680"/>
+    <transition id="transition16" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+    </transition>
+    <transition id="transition17" out="00:00:00.680">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="producer23" in="00:00:00.000" out="00:00:03.480"/>
+    <entry producer="producer24" in="00:00:00.000" out="00:00:06.040"/>
+    <entry producer="tractor0" in="00:00:00.000" out="00:00:00.760"/>
+    <entry producer="producer25" in="00:00:00.000" out="00:00:05.400"/>
+    <entry producer="tractor1" in="00:00:00.000" out="00:00:00.680"/>
+    <entry producer="producer26" in="00:00:01.280" out="00:00:05.320"/>
+    <entry producer="tractor2" in="00:00:00.000" out="00:00:00.720"/>
+    <entry producer="producer27" in="00:00:00.200" out="00:00:04.400"/>
+    <entry producer="tractor3" in="00:00:00.000" out="00:00:00.680"/>
+    <entry producer="producer28" in="00:00:00.960" out="00:00:05.240"/>
+    <entry producer="tractor4" in="00:00:00.000" out="00:00:00.640"/>
+    <entry producer="producer29" in="00:00:00.000" out="00:00:04.200"/>
+    <entry producer="tractor5" in="00:00:00.000" out="00:00:00.520"/>
+    <entry producer="producer30" in="00:00:00.000" out="00:00:05.280"/>
+    <entry producer="tractor6" in="00:00:00.000" out="00:00:00.760"/>
+    <entry producer="producer31" in="00:00:01.200" out="00:00:04.400"/>
+    <entry producer="tractor7" in="00:00:00.000" out="00:00:00.600"/>
+    <entry producer="producer32" in="00:00:00.680" out="00:00:04.440"/>
+    <entry producer="tractor8" in="00:00:00.000" out="00:00:00.680"/>
+    <entry producer="producer33" in="00:00:00.720" out="00:00:13.080"/>
+  </playlist>
+  <producer id="producer34" title="Anonymous Submission" in="00:00:00.000" out="00:02:27.200">
+    <property name="length">00:02:27.240</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_video_files/bensound-creativeminds.mp3</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="shotcut:hash">47de3f77f526670952f7abe882c617c3</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="shotcut:caption">bensound-creativeminds.mp3</property>
+    <property name="shotcut:detail">bensound-creativeminds.mp3</property>
+    <property name="shotcut:comment"></property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <playlist id="playlist1">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="producer34" in="00:00:00.000" out="00:01:03.000"/>
+  </playlist>
+  <tractor id="tractor9" title="Shotcut version 18.03.06" global_feed="1" in="00:00:00.000" out="00:01:03.040">
+    <property name="shotcut">1</property>
+    <track producer="background"/>
+    <track producer="playlist0"/>
+    <track producer="playlist1" hide="video"/>
+    <transition id="transition18">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition19">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="version">0.9</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="disable">1</property>
+    </transition>
+    <transition id="transition20">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+  </tractor>
+</mlt>
