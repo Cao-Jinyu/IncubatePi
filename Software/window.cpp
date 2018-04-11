@@ -1,4 +1,4 @@
-#include "window.h"
+#include "window.hpp"
 // #include "adcreader.h"
 
 #include <cmath>  // for sine stuff

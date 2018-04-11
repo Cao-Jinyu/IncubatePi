@@ -9,7 +9,7 @@
 #include "GPIOWriter.hpp"
 #include "TempReader.hpp"
 #include "PID.hpp"
-#include <window.h>
+#include "window.hpp"
 #include <QApplication>
 
 /*
