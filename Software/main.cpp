@@ -174,7 +174,7 @@ void exit_gracefully(int signum){
     exit(success);
 }
 
-int main(){
+int main(int argc, char *argv[]){
 
     // Register a signal handler so that the program can exit correctly if a ctl-c signal is received.
     signal(SIGINT, exit_gracefully);

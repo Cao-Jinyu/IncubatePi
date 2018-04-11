@@ -19,7 +19,7 @@ class Window : public QWidget
 	Q_OBJECT
 
 public:
-	Window(AmbientTempPID *pid, TempReader *temp); // default constructor - called when a Window is declared without arguments
+	Window(PID *pid, TempReader *temp); // default constructor - called when a Window is declared without arguments
 
 	~Window();
 
@@ -34,8 +34,8 @@ private:
 	QwtPlot      *plot;
 	QwtPlotCurve *curveCurrent;
 	QwtPlotCurve *curveSet;
-    AmbientTempPID *pidControl;
-    TempReader *tempRead;
+    PID          *pidControl;
+    TempReader   *tempRead;
 
 	// layout elements from Qt itself http://qt-project.org/doc/qt-4.8/classes.html
 	QVBoxLayout  *vLayout;  // vertical layout

@@ -4,10 +4,10 @@
 #include <cmath>  // for sine stuff
 
 
-Window::Window(AmbientTempPID *pid, TempReader *tempRead) : gain(40), count(0)
+Window::Window(PID *pid, TempReader *tempRead) : gain(40), count(0)
 {
     pidControl = pid;
-    tempRead = temp;
+    this->tempRead = tempRead;
     
 	knob = new QwtKnob;
 	// set up the gain knob
