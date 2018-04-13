@@ -61,8 +61,8 @@ void Window::timerEvent( QTimerEvent * )
 	// Add the new input to the plot
 	memmove( yDataCurrent, yDataCurrent+1, (plotDataSize-1) * sizeof(double) );
     memmove( yDataSet, yDataSet+1, (plotDataSize-1) * sizeof(double) );
-	yDataCurrent[plotDataSize-1] = currentTemp;
-    yDataSet[plotDataSize-1] = setTemp;
+	//yDataCurrent[plotDataSize-1] = currentTemp;
+    //yDataSet[plotDataSize-1] = setTemp;
 	curveCurrent->setSamples(xDataCurrent, yDataCurrent, plotDataSize);
 	curveSet->setSamples(xDataSet, yDataSet, plotDataSize);
 	plot->replot();
@@ -74,5 +74,5 @@ void Window::setGain(double gain)
 {
 	// For example purposes, just change the amplitude of the generated input
 	this->gain = gain;
-    pidControl->update_required_value((float)gain);
+    //pidControl->update_required_value((float)gain);
 }
