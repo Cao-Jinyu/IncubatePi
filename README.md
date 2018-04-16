@@ -10,7 +10,9 @@
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
-Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+[youtube_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/youtube_icon.png
+[youtube_url]: https://www.youtube.com/channel/UCyrm2wJSCseUDFAKD9X7mjQ
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url] &nbsp; [![alt text][youtube_icon]][youtube_url]
 
 View our project on Hackaday: https://hackaday.io/project/125376-incupi
 
@@ -104,7 +106,9 @@ The git version control software was chosen due to its wide-scale use and suppor
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
-Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+[youtube_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/youtube_icon.png
+[youtube_url]: https://www.youtube.com/channel/UCyrm2wJSCseUDFAKD9X7mjQ
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url] &nbsp; [![alt text][youtube_icon]][youtube_url]
 
 The project can also be found on Hackaday here: https://hackaday.io/project/125376-incupi
 
