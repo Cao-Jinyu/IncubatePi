@@ -1,16 +1,18 @@
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_logo_2_lowres.png)
-
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/device_image_labelled_lowres.png)
+Click the image to find our promotional video on YouTube:
+
+[![Promo Video](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Video%20Files/video_thumbnail.jpg)](http://www.youtube.com/watch?v=8vy_HCOcaGk "IncuPi Project")
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+
+Promotional video URL: https://www.youtube.com/watch?v=8vy_HCOcaGk
 
 ## Problem
 
@@ -34,10 +36,10 @@ A fast temperature response was required to ensure fast-heating of the incubator
 The full data for these results can be found [here](./Experimental%20Data).
 
 #### 2. Permitted latencies
-The latency between the temperature reading and the incubator temperature change has been tested to be no longer than 1 minute for temperature changes of 1 degree Celsius.
+The latency between the temperature reading and the incubator temperature change has been tested to be no longer than one minute for temperature changes of one degree Celsius.
 
 #### 3. Sampling rate
-The ambient temperature of the incubator is sampled and processed every 10 second by the PID control software. The neonate temperature is sampled every 1 minute because this temperature does not vary signification over short periods of time. This ensures sufficient data for the temperature control, modifying the heater/fan power every 5 seconds.
+The ambient temperature of the incubator is sampled and processed every 10 seconds by the PID control software. The neonate temperature is sampled every minute because this temperature does not vary significantly over short periods of time. This ensures sufficient data for the temperature control, modifying the heater/fan power every 5 seconds.
 
 #### 4. Bus protocol
 The Raspberry Pi communicates with the DS18B20 temperature sensors using the RPI's 1-wire interface. This uses a single wire to provide data, and power. This reduces wiring complexity and allows for multiple temperature devices connected in parallel without a chip select line for each, thus improving the flexibility and scalability.
@@ -48,7 +50,7 @@ A standard PWM signal is used to control the fan.
 Multiple temperature sensor channels can be connected to the Raspberry Pi using the 1-wire interface. The default for this is 2: one for neonate temperature and one for the incubator ambient temperature. This is passed to the GPIO and PWM outputs to control the heating element's MOSFET and the fan respectively.
 
 #### 6. Low level implementation: kernel or user space?
-The main application runs in user space because it provides security and portability. Some of the external interfaces (eg. 1-wire) are implemented using loadable kernel modules.
+The main application runs in user space because it provides security and portability. The timing requirements of the system were not severe enough to warrant custom kernel routines. Some of the external interfaces (eg. 1-wire) are implemented using loadable kernel modules.
 
 #### 7. Data flow from hardware to GUI to output
 The Raspberry Pi sends data to a connected monitor using 
@@ -63,7 +65,7 @@ The buffering of the temperature values is a low performance activity, and intro
 The data is processed real-time as the temperature information is detected. This is post-processed in by the custom PID controller to provide the values for the heater and fan elements. This introduces a maximum latency of 5 ms, allowing for low-latency temperature changes.
 
 #### 11. Number of threads and load be distribution
-The main software is executed in one thread, and child threads are be created to handle the temperature measurements and other external interrupts. The child threads can be created depending on the number of temperature sensors connected to aid in the scalability of the application.
+The main software is executed in one thread, and child threads are created to handle the temperature measurements and other external interrupts. The number of child threads created can be varied depending on the number of temperature sensors connected, to aid in the scalability of the application.
 
 #### 12. GUI implementation
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
@@ -74,7 +76,7 @@ The software features a main class and 4 other classes as follows (full document
 
 * **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
 * **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. The temperate read sample rate is once every 1 second.
+* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. 
 * **PID:** Encapsulates a general PID controller.
 
 Unit tests are included for each class, and can be executed using the command `make test` within the software directory.
