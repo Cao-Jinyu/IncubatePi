@@ -83,9 +83,9 @@ static AmbientTempPID *ambient_temp_pid; // Ambient temperature PID controller
 void heater_pwm(){
 
     int period_ms, on_time_ms, off_time_ms;
-    
+
     while(true){
-        
+
         // Check if the output value of the PID controller is ready to be read.
         if (ambient_temp_pid->isReady())
 
@@ -102,7 +102,7 @@ void heater_pwm(){
         std::this_thread::sleep_for(std::chrono::milliseconds(on_time_ms));
         heater->low();
         std::this_thread::sleep_for(std::chrono::milliseconds(off_time_ms));
-        
+
     }
 }
 
@@ -113,7 +113,7 @@ void heater_pwm(){
 void ambient_target_select(){
 
     float neonate_temp;
-    float target_ambient_temp = INITIAL_TARGET;     
+    float target_ambient_temp = INITIAL_TARGET;
 
     while (true){
 
@@ -127,7 +127,7 @@ void ambient_target_select(){
         // while ensuring it does not go outwith specified limits.
         if (neonate_temp < NEONATE_IDEAL_MIN && target_ambient_temp < MAX_AMBIENT_TEMP) target_ambient_temp++;
         else if (neonate_temp > NEONATE_IDEAL_MAX && target_ambient_temp > MIN_AMBIENT_TEMP) target_ambient_temp--;
-        
+
         // Update the PID controller to the new target
         //ambient_temp_pid->update_required_value(target_ambient_temp);
 
@@ -157,10 +157,10 @@ void exit_gracefully(int signum){
         }
         delete neonate;
         delete ambient;
-        delete ambient_temp_pid;       
-        
+        delete ambient_temp_pid;
+
         if (outfile.is_open()) outfile.close();
-        
+
     } catch(std::runtime_error& e){
         std::cout << e.what() << std::endl;
         success = FAILURE; // The execution is considered a failure if any exceptions were thrown.
@@ -200,7 +200,7 @@ int main(int argc, char *argv[]){
         success = FAILURE;
         exit_gracefully(0);
     }
-    
+
     // Open file to write program output to.
     outfile.open(OUTFILE.c_str());
 
@@ -210,19 +210,19 @@ int main(int argc, char *argv[]){
 
     // Start a thread that controls the heater PWM signal according to the PID output.
     std::thread heater_thread(heater_pwm);
-    
+
     // Start a thread which monitors the neonate temperature and sets the target ambient temperature.
     std::thread temperature_thread(ambient_target_select);
-       
+
     //Start a thread which displays a QT window for control ofthe application
     QApplication app(argc, argv);
-	Window window(ambient_temp_pid, ambient);
-	window.showMaximized();
+    Window window(ambient_temp_pid, ambient);
+    window.showMaximized();
 
-	// call the window.timerEvent function every 40 ms and begin execution
-	window.startTimer(40);
+    // call the window.timerEvent function every 40 ms and begin execution
+    window.startTimer(40);
     app.exec();
-    
+
     while(true) {
 
         std::cout << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;

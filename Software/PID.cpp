@@ -74,16 +74,16 @@ void PID::iterate() {
 }
 
 float PID::get_required_value(){
-	
-	return this->required_value;
+
+    return this->required_value;
 }
 
 void PID::update_required_value(float required_value){
-	
+
 
     // Ensure synchronization with other methods.
     protect.lock();
-	std::cout << "GOT GAIN:  " << required_value << std::endl;
+    std::cout << "GOT GAIN:  " << required_value << std::endl;
     this->required_value = required_value;
 
     // Reset all accumulating variables.
