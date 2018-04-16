@@ -2,9 +2,8 @@
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-Click the image to find our promotional video on YouTube:
-
-[![Promo Video](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Video%20Files/video_thumbnail.jpg)](http://www.youtube.com/watch?v=8vy_HCOcaGk "IncuPi Project")
+**Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk
+**You can also find a demo of the device here:** 
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
@@ -12,8 +11,7 @@ Click the image to find our promotional video on YouTube:
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
 
-View project on Hackaday: https://hackaday.io/project/125376-incupi  
-Promotional video URL: https://www.youtube.com/watch?v=8vy_HCOcaGk
+View our project on Hackaday: https://hackaday.io/project/125376-incupi
 
 ## Problem
 
@@ -108,6 +106,8 @@ The git version control software was chosen due to its wide-scale use and suppor
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+
+The project can also be found on Hackaday here: https://hackaday.io/project/125376-incupi
 
 The software and hardware schematics are released here on GitHub. Please feel free to download, under the MIT license included.
 
