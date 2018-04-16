@@ -37,7 +37,7 @@ A fast temperature response was required to ensure fast-heating of the incubator
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/temperature_response.jpg)
 
-The full data for these results can be found [here](./Experimental%20Data).
+The full data for these results can be found [HERE](./Experimental%20Data).
 
 #### 2. Permitted latencies
 The latency between the temperature reading and the incubator temperature change has been tested to be no longer than one minute for temperature changes of one degree Celsius.
@@ -117,7 +117,7 @@ The project can also be found on Hackaday here: https://hackaday.io/project/1253
 The software and hardware schematics are released here on GitHub. Please feel free to download, under the MIT license included.
 
 #### 18. Success of the application
-The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [here](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
+The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [HERE](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
 
 ## University of Glasgow
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
