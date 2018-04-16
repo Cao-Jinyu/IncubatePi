@@ -4,7 +4,7 @@
   <producer id="producer0" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">IMG_20180413_140600.jpg</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/IMG_20180413_140600.jpg</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -17,7 +17,7 @@
   <producer id="producer1" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">IMG_20180413_140715.jpg</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/IMG_20180413_140715.jpg</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -30,7 +30,7 @@
   <producer id="producer2" title="Anonymous Submission" in="00:00:00.000" out="00:00:32.080">
     <property name="length">00:00:32.120</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_134734.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_134734.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -48,7 +48,7 @@
   <producer id="producer3" title="Anonymous Submission" in="00:00:00.000" out="00:00:32.080">
     <property name="length">00:00:32.120</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_134734.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_134734.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -62,7 +62,7 @@
   <producer id="producer4" title="Anonymous Submission" in="00:00:00.000" out="00:00:22.400">
     <property name="length">00:00:22.440</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_135042.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_135042.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -76,7 +76,7 @@
   <producer id="producer5" title="Anonymous Submission" in="00:00:00.000" out="00:00:30.000">
     <property name="length">00:00:30.040</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_140319.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_140319.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -94,7 +94,7 @@
   <producer id="producer6" title="Anonymous Submission" in="00:00:00.000" out="00:00:30.000">
     <property name="length">00:00:30.040</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_140319.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_140319.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -108,7 +108,7 @@
   <producer id="producer7" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">first_slide.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/first_slide.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -122,7 +122,7 @@
   <producer id="producer8" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">slide_1.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/slide_1.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -136,7 +136,7 @@
   <producer id="producer9" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">slide_2.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/slide_2.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -146,6 +146,85 @@
     <property name="ignore_points">0</property>
     <property name="global_feed">1</property>
     <property name="xml">was here</property>
+  </producer>
+  <producer id="producer10" title="Anonymous Submission" in="00:00:00.000" out="03:59:59.960">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">information_slide.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">a555285d395bc3c65aef785a83de67b9</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer11" title="Anonymous Submission" in="00:00:00.000" out="00:02:27.200">
+    <property name="length">00:02:27.240</property>
+    <property name="eof">pause</property>
+    <property name="resource">bensound-creativeminds.mp3</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="shotcut:hash">47de3f77f526670952f7abe882c617c3</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer12" title="Anonymous Submission" in="00:00:00.000" out="00:00:42.720">
+    <property name="length">00:00:42.760</property>
+    <property name="eof">pause</property>
+    <property name="resource">VID_20180416_131907.mp4</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="shotcut:hash">b789ffe374a53d4252513a56482547a4</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">VID_20180416_131907.mp4</property>
+    <property name="shotcut:detail">VID_20180416_131907.mp4</property>
+    <property name="shotcut:comment"></property>
+  </producer>
+  <producer id="producer13" title="Anonymous Submission" in="00:00:00.000" out="00:00:42.720">
+    <property name="length">00:00:42.760</property>
+    <property name="eof">pause</property>
+    <property name="resource">VID_20180416_131907.mp4</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="shotcut:hash">b789ffe374a53d4252513a56482547a4</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer14" title="Anonymous Submission" in="00:00:00.000" out="00:00:42.720">
+    <property name="length">00:00:42.760</property>
+    <property name="eof">pause</property>
+    <property name="resource">VID_20180416_131907.mp4</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="shotcut:hash">b789ffe374a53d4252513a56482547a4</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">VID_20180416_131907.mp4</property>
+    <property name="shotcut:detail">VID_20180416_131907.mp4</property>
+    <property name="shotcut:comment"></property>
   </producer>
   <playlist id="main bin" title="Shotcut version 18.03.06">
     <property name="xml_retain">1</property>
@@ -159,9 +238,14 @@
     <entry producer="producer7" in="00:00:00.000" out="00:00:03.960"/>
     <entry producer="producer8" in="00:00:00.000" out="00:00:03.960"/>
     <entry producer="producer9" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer10" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer11" in="00:00:00.000" out="00:02:27.200"/>
+    <entry producer="producer12" in="00:00:17.680" out="00:00:34.120"/>
+    <entry producer="producer13" in="00:00:00.000" out="00:00:42.720"/>
+    <entry producer="producer14" in="00:00:20.160" out="00:00:32.080"/>
   </playlist>
-  <producer id="black" in="00:00:00.000" out="00:00:35.560">
-    <property name="length">00:00:35.600</property>
+  <producer id="black" in="00:00:00.000" out="00:01:00.120">
+    <property name="length">00:01:00.160</property>
     <property name="eof">pause</property>
     <property name="resource">black</property>
     <property name="aspect_ratio">1</property>
@@ -169,12 +253,12 @@
     <property name="set.test_audio">0</property>
   </producer>
   <playlist id="background">
-    <entry producer="black" in="00:00:00.000" out="00:00:35.560"/>
+    <entry producer="black" in="00:00:00.000" out="00:01:00.120"/>
   </playlist>
-  <producer id="producer10" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
+  <producer id="producer15" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">first_slide.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/first_slide.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -185,10 +269,10 @@
     <property name="global_feed">1</property>
     <property name="xml">was here</property>
   </producer>
-  <producer id="producer11" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
+  <producer id="producer16" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">slide_1.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/slide_1.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -199,10 +283,10 @@
     <property name="global_feed">1</property>
     <property name="xml">was here</property>
   </producer>
-  <producer id="producer12" title="Anonymous Submission" in="00:00:00.000" out="00:00:30.000">
+  <producer id="producer17" title="Anonymous Submission" in="00:00:00.000" out="00:00:30.000">
     <property name="length">00:00:30.040</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_140319.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_140319.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -236,10 +320,10 @@
       <property name="shotcut:pointSize">100</property>
     </filter>
   </producer>
-  <producer id="producer13" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
+  <producer id="producer18" title="Anonymous Submission" in="00:00:00.000" out="00:00:03.960">
     <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">slide_2.png</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/slide_2.png</property>
     <property name="ttl">1</property>
     <property name="aspect_ratio">1</property>
     <property name="progressive">1</property>
@@ -250,10 +334,10 @@
     <property name="global_feed">1</property>
     <property name="xml">was here</property>
   </producer>
-  <producer id="producer14" title="Anonymous Submission" in="00:00:00.000" out="00:00:32.080">
+  <producer id="producer19" title="Anonymous Submission" in="00:00:00.000" out="00:00:32.080">
     <property name="length">00:00:32.120</property>
     <property name="eof">pause</property>
-    <property name="resource">VID_20180413_134734.mp4</property>
+    <property name="resource">C:\Users\Jack\Documents\My Documents\incupi_demo_video_files/VID_20180413_134734.mp4</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">0</property>
@@ -268,19 +352,96 @@
     <property name="shotcut:detail">VID_20180413_134734.mp4</property>
     <property name="shotcut:comment"></property>
   </producer>
+  <producer id="producer20" title="Anonymous Submission" in="00:00:00.000" out="00:00:42.720">
+    <property name="length">00:00:42.760</property>
+    <property name="eof">pause</property>
+    <property name="resource">VID_20180416_131907.mp4</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="shotcut:hash">b789ffe374a53d4252513a56482547a4</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">VID_20180416_131907.mp4</property>
+    <property name="shotcut:detail">VID_20180416_131907.mp4</property>
+    <property name="shotcut:comment"></property>
+    <filter id="filter1">
+      <property name="argument">It also includes a useful user interface
+that can be used to vary the operating temperature
+based on the medical treatment required</property>
+      <property name="geometry">0/0:100%x100%</property>
+      <property name="family">Verdana</property>
+      <property name="size">360</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#ffffffff</property>
+      <property name="bgcolour">#78000000</property>
+      <property name="olcolour">#ff000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">0</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+    </filter>
+  </producer>
+  <producer id="producer21" title="Anonymous Submission" in="00:00:00.000" out="00:00:12.560">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">information_slide.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="shotcut:hash">a555285d395bc3c65aef785a83de67b9</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
   <playlist id="playlist0">
     <property name="shotcut:video">1</property>
     <property name="shotcut:name">V1</property>
-    <entry producer="producer10" in="00:00:00.000" out="00:00:03.960"/>
-    <entry producer="producer11" in="00:00:00.000" out="00:00:03.960"/>
-    <entry producer="producer12" in="00:00:04.960" out="00:00:16.680"/>
-    <entry producer="producer13" in="00:00:00.000" out="00:00:03.960"/>
-    <entry producer="producer14" in="00:00:11.520" out="00:00:23.320"/>
+    <entry producer="producer15" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer16" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer17" in="00:00:04.960" out="00:00:16.680"/>
+    <entry producer="producer18" in="00:00:00.000" out="00:00:03.960"/>
+    <entry producer="producer19" in="00:00:11.520" out="00:00:23.320"/>
+    <entry producer="producer20" in="00:00:20.160" out="00:00:32.080"/>
+    <entry producer="producer21" in="00:00:00.000" out="00:00:12.560"/>
   </playlist>
-  <tractor id="tractor0" title="Shotcut version 18.03.06" global_feed="1" in="00:00:00.000" out="00:00:35.560">
+  <producer id="producer22" title="Anonymous Submission" in="00:00:00.000" out="00:02:27.200">
+    <property name="length">00:02:27.240</property>
+    <property name="eof">pause</property>
+    <property name="resource">bensound-creativeminds.mp3</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="shotcut:hash">47de3f77f526670952f7abe882c617c3</property>
+    <property name="ignore_points">0</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">bensound-creativeminds.mp3</property>
+    <property name="shotcut:detail">bensound-creativeminds.mp3</property>
+    <property name="shotcut:comment"></property>
+  </producer>
+  <playlist id="playlist1">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="producer22" in="00:00:00.000" out="00:01:00.080"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 18.03.06" global_feed="1" in="00:00:00.000" out="00:01:00.120">
     <property name="shotcut">1</property>
     <track producer="background"/>
     <track producer="playlist0" hide="audio"/>
+    <track producer="playlist1" hide="video"/>
     <transition id="transition0">
       <property name="a_track">0</property>
       <property name="b_track">1</property>
@@ -294,6 +455,13 @@
       <property name="version">0.9</property>
       <property name="mlt_service">frei0r.cairoblend</property>
       <property name="disable">1</property>
+    </transition>
+    <transition id="transition2">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
     </transition>
   </tractor>
 </mlt>
