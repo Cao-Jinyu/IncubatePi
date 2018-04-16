@@ -59,7 +59,7 @@ Multiple temperature sensor channels can be connected to the Raspberry Pi using 
 The main application runs in user space because it provides security and portability. The timing requirements of the system were not severe enough to warrant custom kernel routines. Some of the external interfaces (eg. 1-wire) are implemented using loadable kernel modules.
 
 #### 7. Data flow from hardware to GUI to output
-The Raspberry Pi sends data to a connected monitor using 
+The Raspberry Pi sends data to a connected monitor, using QT for the display output. The Raspberry Pi is connected to the monitor using it's built-in VGA connection with an HDMI adapter.
 
 #### 8. Buffering of data
 The temperature data is buffered over a maximum of 5 minutes to aid in the accurate PID control of the slow-changing temperature values.
