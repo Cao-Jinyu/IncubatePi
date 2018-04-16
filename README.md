@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_logo_2_lowres.png)
 
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
