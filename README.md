@@ -76,7 +76,7 @@ The data is processed real-time as the temperature information is detected. This
 The main software is executed in one thread, and child threads are created to handle the temperature measurements and other external interrupts. The number of child threads created can be varied depending on the number of temperature sensors connected, to aid in the scalability of the application.
 
 #### 12. GUI implementation
-The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
+The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data. This can be viewed in the ![Software wiki](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Device%20Images/UML_diagram.jpg).
 
 #### 13. Class structure and unit tests
 The software features a main class and 4 other classes as follows:
