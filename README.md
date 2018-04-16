@@ -4,12 +4,10 @@
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/device_low_res.jpg)
 
-*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
-
+*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-**Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk
-
+**Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk  
 **You can also find a demonstration of the device here:** https://www.youtube.com/watch?v=y4fZthFY24Q
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
