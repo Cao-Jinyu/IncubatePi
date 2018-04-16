@@ -3,6 +3,7 @@
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
 **Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk
+
 **You can also find a demo of the device here:** 
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
@@ -21,7 +22,7 @@ Premature or ill neonates often require automated temperature monitoring and con
 
 IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi as the central control unit. Multiple temperature sensors provide information about the temperature of the neonate and the incubator ambient temperature. Embedded PID control software on the Raspberry Pi is then used to control a heater and fan system. This provides the appropriate heat control to ensure a neonate body temperature of 37 degrees Celsius.
 
-** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
+**SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION**
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_block_diagram.png)
 
@@ -70,15 +71,13 @@ The main software is executed in one thread, and child threads are created to ha
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
 
 #### 13. Class structure and unit tests
-All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl` within the software directory.
-The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
+The software features a main class and 4 other classes as follows:
 
-* **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
-* **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. 
-* **PID:** Encapsulates a general PID controller.
+![UML diagram](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Device%20Images/UML_diagram.jpg)
 
 Unit tests are included for each class, and can be executed using the command `make test` within the software directory.
+
+**SEE THE WIKI DOCS FOR DETAILS ON SOFTWARE [HERE](https://github.com/croaljack0/IncubatePi/wiki/Software)**
 
 #### 14. Team structure
 The team members and roles are as follows:
