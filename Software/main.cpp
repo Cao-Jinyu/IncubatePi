@@ -26,8 +26,8 @@
     set to match the DS18B20 devices being used.
 */
 
-static std::string NEONATE_TEMP_SENSOR = "28-000005f50d4c";    // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
-static std::string AMBIENT_TEMP_SENSOR = "28-000005f4e7d6";    // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
+static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";    // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
+static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";    // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
 
 static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35)
 static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to (BCM pin 10 is connected to GPIO pin 19)
@@ -125,8 +125,8 @@ void ambient_target_select(){
 
         // If the neonate temperature is outwith of the ideal range, increment or decrement the target ambient temperature accordingly
         // while ensuring it does not go outwith specified limits.
-        //if (neonate_temp < NEONATE_IDEAL_MIN && target_ambient_temp < MAX_AMBIENT_TEMP) target_ambient_temp++;
-        //else if (neonate_temp > NEONATE_IDEAL_MAX && target_ambient_temp > MIN_AMBIENT_TEMP) target_ambient_temp--;
+        if (neonate_temp < NEONATE_IDEAL_MIN && target_ambient_temp < MAX_AMBIENT_TEMP) target_ambient_temp++;
+        else if (neonate_temp > NEONATE_IDEAL_MAX && target_ambient_temp > MIN_AMBIENT_TEMP) target_ambient_temp--;
         
         // Update the PID controller to the new target
         //ambient_temp_pid->update_required_value(target_ambient_temp);
@@ -213,21 +213,16 @@ int main(int argc, char *argv[]){
     
     // Start a thread which monitors the neonate temperature and sets the target ambient temperature.
     std::thread temperature_thread(ambient_target_select);
-    
-    
+       
     //Start a thread which displays a QT window for control ofthe application
     QApplication app(argc, argv);
-
-	// create the window
 	Window window(ambient_temp_pid, ambient);
 	window.showMaximized();
 
-	// call the window.timerEvent function every 40 ms
+	// call the window.timerEvent function every 40 ms and begin execution
 	window.startTimer(40);
+    app.exec();
     
-    // Main will now sleep forever.
-    //heater_thread.join();
-    //temperature_thread.join();
     while(true) {
 
         std::cout << ambient->readTemp() << ", " << heater_pwm_duty_cycle << std::endl;

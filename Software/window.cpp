@@ -1,78 +1,70 @@
 #include "window.hpp"
-// #include "adcreader.h"
+#include <iostream>
 
-#include <cmath>  // for sine stuff
-
-
-Window::Window(PID *pid, TempReader *tempRead) : gain(40), count(0)
-{
+Window::Window(PID *pid, TempReader *tempRead){
+	
+	// Attach pointers to PID controller and temperature sensor
     pidControl = pid;
     this->tempRead = tempRead;
 
+    // Create knob for setting the target temperature
 	knob = new QwtKnob;
-	// Set up the gain knob
-	knob->setValue(gain);
+	knob->setValue(pid->get_required_value() / 4);
+	knob->setKnobWidth(100);
+	connect( knob, SIGNAL(valueChanged(double)), SLOT(setTargetTemp(double)) );
+	
+	// Initialise plot data sets
+    for( int index=0; index<plotDataSize; ++index ){
+		xDataCurrent[index] = index;
+		xDataTarget[index] = index;
+		yDataCurrent[index] = 0;
+		yDataTarget[index] = 0;
+	}
 
-	// Use the Qt signals/slots framework to update the gain -
-	// Every time the knob is moved, the setGain function will be called
-	connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
-
-	curveSet = new QwtPlotCurve;
+    // Create new plots for both the current and target temperatures
+	curveTarget = new QwtPlotCurve;
     curveCurrent = new QwtPlotCurve;
 	plot = new QwtPlot;
     
 	// Make a plot curve from the data and attach it to the plot
 	curveCurrent->setSamples(xDataCurrent, yDataCurrent, plotDataSize);
 	curveCurrent->attach(plot);
-    curveSet->setSamples(xDataSet, yDataSet, plotDataSize);
-    curveSet->attach(plot);
-
+    curveTarget->setSamples(xDataTarget, yDataTarget, plotDataSize);
+    curveTarget->attach(plot);
+    
+    // Update and display the plot
 	plot->replot();
 	plot->show();
 
-	// Set up the layout - knob above thermometer
+	// Set up the window layout 
 	vLayout = new QVBoxLayout;
 	vLayout->addWidget(knob);
-
-	// Plot to the left of knob and thermometer
 	hLayout = new QHBoxLayout;
 	hLayout->addLayout(vLayout);
 	hLayout->addWidget(plot);
-
 	setLayout(hLayout);
 }
 
-Window::~Window() {
-	// Tells the thread to no longer run its endless loop
-    // adcreader->quit();
-	// Wait until the run method has terminated
-    // adcreader->wait();
-    // delete adcreader;
-}
+void Window::timerEvent( QTimerEvent * ){   
 
-void Window::timerEvent( QTimerEvent * )
-{   
-
-    // These variables are the inputs to the graph. They need to be changed to be inputs from the PID controller
+    // Read the current and target temperatures
 	double currentTemp = tempRead->readTemp();
-    double setTemp = gain;
-	++count;
+    double targetTemp = pidControl->get_required_value();
 
 	// Add the new input to the plot
 	memmove( yDataCurrent, yDataCurrent+1, (plotDataSize-1) * sizeof(double) );
-    memmove( yDataSet, yDataSet+1, (plotDataSize-1) * sizeof(double) );
-	//yDataCurrent[plotDataSize-1] = currentTemp;
-    //yDataSet[plotDataSize-1] = setTemp;
+    memmove( yDataTarget, yDataTarget+1, (plotDataSize-1) * sizeof(double) );
+	yDataCurrent[plotDataSize-1] = currentTemp;
+    yDataTarget[plotDataSize-1] = targetTemp;
 	curveCurrent->setSamples(xDataCurrent, yDataCurrent, plotDataSize);
-	curveSet->setSamples(xDataSet, yDataSet, plotDataSize);
+	curveTarget->setSamples(xDataTarget, yDataTarget, plotDataSize);
+	
+	// Update the plot
 	plot->replot();
 }
 
-
-// This function can be used to change the gain of the A/D internal amplifier
-void Window::setGain(double gain)
-{
-	// For example purposes, just change the amplitude of the generated input
-	this->gain = gain;
-    //pidControl->update_required_value((float)gain);
+void Window::setTargetTemp(double targetTemp){
+	
+	// Update the target temperature of the PID controller
+    this->pidControl->update_required_value(4.0 * targetTemp);
 }

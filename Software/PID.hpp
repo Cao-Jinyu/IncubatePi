@@ -43,6 +43,9 @@ class PID {
 
         // Allows the target value of the PID controller to be changed.
         void update_required_value(float required_value);
+        
+        // Returns the current target value of the PID controller
+        float get_required_value();
 
         // Returns true if the PID output value is ready to read, false otherwise.
         bool isReady();

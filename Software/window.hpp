@@ -10,50 +10,49 @@
 
 #include <QBoxLayout>
 
-// #include "adcreader.h"
-
-// class definition 'Window'
-class Window : public QWidget
-{
+/* 
+    This class implements a window for displaying the the current and 
+    target temperatures on a graph. It also implements a control knob
+    for setting the target temperature.
+      
+*/
+class Window : public QWidget {
+	
 	// must include the Q_OBJECT macro for for the Qt signals/slots framework to work with this class
 	Q_OBJECT
 
-public:
-	Window(PID *pid, TempReader *temp); // default constructor - called when a Window is declared without arguments
-
-	~Window();
-
-	void timerEvent( QTimerEvent * );
-
-public slots:
-	void setGain(double gain);
-
-// internal variables for the window class
-private:
-	QwtKnob      *knob;
-	QwtPlot      *plot;
-	QwtPlotCurve *curveCurrent;
-	QwtPlotCurve *curveSet;
-    PID          *pidControl;
-    TempReader   *tempRead;
-
-	// layout elements from Qt itself http://qt-project.org/doc/qt-4.8/classes.html
-	QVBoxLayout  *vLayout;  // vertical layout
-	QHBoxLayout  *hLayout;  // horizontal layout
+    public:
     
-    //With the current refresh rate of 40ms, the graph will only display 1 second of data for every 25 samples
-	static const int plotDataSize = (25 * 60 * 10);
+        // Creates a new Window with the specified PID controller and temperature sensor.
+	    Window(PID *pid, TempReader *temp); 
 
-	// data arrays for the plot
-	double xDataCurrent[plotDataSize];
-	double yDataCurrent[plotDataSize];
-    double xDataSet[plotDataSize];
-	double yDataSet[plotDataSize];
+        // Called when plotted data is to be updated
+	    void timerEvent( QTimerEvent * );
 
-	double gain;
-	int count;
+    public slots:
+    
+        // Updates the target temperature when the knob is turned
+	    void setTargetTemp(double targetTemp);
 
-//	ADCreader *adcreader;
+    private:
+    
+	    QwtKnob      *knob;            // Knob object for setting target temperature
+	    QwtPlot      *plot;            // Graph plot object for displaying current and target temperatures
+	    QwtPlotCurve *curveCurrent;    // Current ambient temperature plot 
+	    QwtPlotCurve *curveTarget;     // Target ambient temperature plot
+        PID          *pidControl;      // PID controller associated with the graph plots
+        TempReader   *tempRead;        // Temperature sensor associated with the graph plots
+
+	    QVBoxLayout  *vLayout;         // Vertical layout element from Qt
+	    QHBoxLayout  *hLayout;         // Horizontal layout element from Qt
+    
+	    static const int plotDataSize = (25 * 10 * 1);   // Plot x-axis size
+
+	    double xDataCurrent[plotDataSize];    // X-axis data for the current ambient temperature plot
+	    double yDataCurrent[plotDataSize];    // y-axis data for the current ambient temperature plot
+        double xDataTarget[plotDataSize];     // X-axis data for the target ambient temperature plot
+	    double yDataTarget[plotDataSize];     // Y-axis data for the target ambient temperature plot
+            
 };
 
-#endif // WINDOW_H
+#endif 
