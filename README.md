@@ -1,18 +1,22 @@
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_logo_2_lowres.png)
+
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
 *Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
-Click the image to find our promotional video on YouTube:
+**Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk
 
-[![Promo Video](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Video%20Files/video_thumbnail.jpg)](http://www.youtube.com/watch?v=8vy_HCOcaGk "IncuPi Project")
+**You can also find a demonstration of the device here:** https://www.youtube.com/watch?v=y4fZthFY24Q
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
-Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+[youtube_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/youtube_icon.png
+[youtube_url]: https://www.youtube.com/channel/UCyrm2wJSCseUDFAKD9X7mjQ
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url] &nbsp; [![alt text][youtube_icon]][youtube_url]
 
-Promotional video URL: https://www.youtube.com/watch?v=8vy_HCOcaGk
+View our project on Hackaday: https://hackaday.io/project/125376-incupi
 
 ## Problem
 
@@ -22,7 +26,7 @@ Premature or ill neonates often require automated temperature monitoring and con
 
 IncuPi provides a neonate temperature monitoring solution using a Raspberry Pi as the central control unit. Multiple temperature sensors provide information about the temperature of the neonate and the incubator ambient temperature. Embedded PID control software on the Raspberry Pi is then used to control a heater and fan system. This provides the appropriate heat control to ensure a neonate body temperature of 37 degrees Celsius.
 
-** SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION **
+**SEE THE WIKI DOCS [HERE](https://github.com/croaljack0/IncubatePi/wiki) FOR DETAILED HARDWARE AND SOFTWARE IMPLEMENTATION**
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/incupi_block_diagram.png)
 
@@ -33,7 +37,7 @@ A fast temperature response was required to ensure fast-heating of the incubator
 
 ![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/temperature_response.jpg)
 
-The full data for these results can be found [here](./Experimental%20Data).
+The full data for these results can be found [HERE](./Experimental%20Data).
 
 #### 2. Permitted latencies
 The latency between the temperature reading and the incubator temperature change has been tested to be no longer than one minute for temperature changes of one degree Celsius.
@@ -71,15 +75,13 @@ The main software is executed in one thread, and child threads are created to ha
 The GUI is implemented using QT, and is displayed on a connected monitor. The refresh rate is equal to the temperature sensor sample rate: refresh every second. The allowed latency is 0.5 seconds. The temperature information is displayed real-time, along with the PID temperature controller data.
 
 #### 13. Class structure and unit tests
-All required software is provided within the [Software](./Software) folder. This can be compiled and executed on the RPI using the following command: `cmake . && make && sudo ./TempControl` within the software directory.
-The software features a main class and 4 other classes as follows (full documentation is available in each of the respective header files):
+The software features a main class and 4 other classes as follows:
 
-* **GPIOWriter:** Configures an RPI GPIO pin so that it can be set high and low as required.
-* **PWMChip:** Configures a PWM chip on a RPI so that its period and duty cycle can be specified and it can be enabled and disabled as required.
-* **ReadTemp:** Reads the temperature from each of the connected temperature sensors. 
-* **PID:** Encapsulates a general PID controller.
+![UML diagram](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Device%20Images/UML_diagram.jpg)
 
 Unit tests are included for each class, and can be executed using the command `make test` within the software directory.
+
+**SEE THE WIKI DOCS FOR DETAILS ON SOFTWARE [HERE](https://github.com/croaljack0/IncubatePi/wiki/Software)**
 
 #### 14. Team structure
 The team members and roles are as follows:
@@ -106,12 +108,16 @@ The git version control software was chosen due to its wide-scale use and suppor
 [facebook_url]: https://www.facebook.com/IncuPi/
 [instagram_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/instagram_icon.png
 [instagram_url]: https://www.instagram.com/incupi_project
-Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
+[youtube_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/youtube_icon.png
+[youtube_url]: https://www.youtube.com/channel/UCyrm2wJSCseUDFAKD9X7mjQ
+Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url] &nbsp; [![alt text][youtube_icon]][youtube_url]
+
+The project can also be found on Hackaday here: https://hackaday.io/project/125376-incupi
 
 The software and hardware schematics are released here on GitHub. Please feel free to download, under the MIT license included.
 
 #### 18. Success of the application
-The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [here](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
+The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [HERE](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
 
 ## University of Glasgow
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
