@@ -119,6 +119,8 @@ The software and hardware schematics are released here on GitHub. Please feel fr
 #### 18. Success of the application
 The application is evaluated on its temperature response time based on the neonate's temperature changes. The experimental results are included [HERE](./Experimental%20Data). The application is successful in holding a steady temperature within the incubator and changes the temperature accordingly with low latency and useful graphical output.
 
+Overall, this project demonstrates a key understanding of real-time applications, and follows a clear software life-cycle using proper software development techniques.
+
 ## University of Glasgow
 Developed as part of Real Time Embedded Programming Project at the University of Glasgow.
 
