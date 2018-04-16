@@ -26,8 +26,8 @@
     set to match the DS18B20 devices being used.
 */
 
-static std::string NEONATE_TEMP_SENSOR = "28-000005f4e7d6";    // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
-static std::string AMBIENT_TEMP_SENSOR = "28-000005f50d4c";    // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
+static std::string NEONATE_TEMP_SENSOR = "28-000005f50d4c";    // Unique identity code of DS18B20 temp sensor being used to measure neonate temperature
+static std::string AMBIENT_TEMP_SENSOR = "28-000005f4e7d6";    // Unique identity code of DS18B20 temp sensor being used to measure ambient temperature
 
 static const int PWMCHIP = 1;                   // PWM chip on the RPI that will be used to control the fan (PWM chip 1 is connected to GPIO pins 33 and 35)
 static const int HEATER_BCM_PIN = 10;           // BCM Pin on the RPI that the heater will be connected to (BCM pin 10 is connected to GPIO pin 19)
