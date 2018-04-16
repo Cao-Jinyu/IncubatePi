@@ -130,9 +130,8 @@ void ambient_target_select(){
 
         // Update the PID controller to the new target
         //ambient_temp_pid->update_required_value(target_ambient_temp);
-
-        std::cout << "Current Neonate Temperature: " << neonate_temp << std::endl;
-        std::cout << "Target Ambient Temperature: " << target_ambient_temp << std::endl;
+        //std::cout << "Current Neonate Temperature: " << neonate_temp << std::endl;
+        //std::cout << "Target Ambient Temperature: " << target_ambient_temp << std::endl;
     }
 
 }
