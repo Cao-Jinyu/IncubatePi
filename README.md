@@ -12,6 +12,7 @@ Click the image to find our promotional video on YouTube:
 [instagram_url]: https://www.instagram.com/incupi_project
 Click these icons to follow us on  [![alt text][facebook_icon]][facebook_url] &nbsp; [![alt text][instagram_icon]][instagram_url]
 
+View project on Hackaday: https://hackaday.io/project/125376-incupi
 Promotional video URL: https://www.youtube.com/watch?v=8vy_HCOcaGk
 
 ## Problem

@@ -6,4 +6,6 @@
 *CMakeFiles*
 *CMakeCache*
 *.cmake
+*automoc*
+*moc_window*
 
