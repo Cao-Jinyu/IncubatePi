@@ -1,10 +1,12 @@
+![alt text](https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/incupi_logo_2_lowres.png)
+
 ### Neonate (Newborn Child) Real Time Temperature Control Incubator
-*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*  
+*Features a Raspberry Pi, Temperature Sensors, a Heater and a Fan.*
 *Low budget alternative to conventional incubators suitable for the developing world.*
 
 **Find our promotional video on YouTube:** http://www.youtube.com/watch?v=8vy_HCOcaGk
 
-**You can also find a demo of the device here:** 
+**You can also find a demonstration of the device here:** https://www.youtube.com/watch?v=y4fZthFY24Q
 
 [facebook_icon]: https://raw.githubusercontent.com/croaljack0/IncubatePi/master/Media/Marketing%20Images/facebook_icon.png
 [facebook_url]: https://www.facebook.com/IncuPi/
